@@ -61,7 +61,7 @@
 
             // template method (design pattern)
             $data = $this->executeAction();
-            $data["isLoggedIn"] = $_SESSION["visiblity"] > commonAction::$VISIBILITY_PUBLIC; // pour être login, il faut avoir accès à une visibilité plus grande que 0
+            $data["isLoggedIn"] = $_SESSION["visibility"] > commonAction::$VISIBILITY_PUBLIC; // pour être login, il faut avoir accès à une visibilité plus grande que 0
             $data["username"] = !empty($_SESSION["username"]) ? $_SESSION["username"] : "Invité"; // si on a un username on l'utilise sinon on est invité
             return $data;
         }

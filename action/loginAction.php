@@ -21,13 +21,15 @@
                 if($result != "INVALID_USERNAME_PASSWORD"){
                     var_dump($result);
                     exit;
-                    $key = $result->key;
+                    // $_SESSION["key"] = $result->key;
+                    // header("location:index.php");
+                    // exit;
                 }
                 else{
                     $hasConnectionError = true;
                 }
             }
-
+            
+            return compact("hasConnectionError");
         }
-
     }
