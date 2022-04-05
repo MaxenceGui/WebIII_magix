@@ -1,5 +1,6 @@
 <?php
     require_once("action/loginAction.php");
+    require_once("partial/header.php");
 
     $action = new LoginAction();
     $data = $action->execute();

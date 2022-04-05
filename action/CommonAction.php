@@ -11,31 +11,31 @@
         protected static $VISIBILITY_ADMINISTARTOR = 3;
         private $pageVisibility;
 
-    /** 
-    * data = array('key1' => 'value1', 'key2' => 'value2'); 
-    */ 
+        /** 
+        * data = array('key1' => 'value1', 'key2' => 'value2'); 
+        */ 
 
-    public function callAPI($service, array $data) { 
+        public function callAPI($service, array $data) { 
 
-        $apiURL = "https://magix.apps-de-cours.com/api/" . $service;       
+            $apiURL = "https://magix.apps-de-cours.com/api/" . $service;       
+            
+            $options = array( 
+                'http' => array( 
+                    'header'  => "Content-type: application/x-www-form-urlencoded\r\n", 
+                    'method'  => 'POST', 
+                    'content' => http_build_query($data) 
+                )
+            ); 
+            
+            $context  = stream_context_create($options); 
+            $result = file_get_contents($apiURL, false, $context); 
         
-        $options = array( 
-            'http' => array( 
-                'header'  => "Content-type: application/x-www-form-urlencoded\r\n", 
-                'method'  => 'POST', 
-                'content' => http_build_query($data) 
-            )
-        ); 
-        
-        $context  = stream_context_create($options); 
-        $result = file_get_contents($apiURL, false, $context); 
-    
-        if (strpos($result, "<br") !== false) { 
-            var_dump($result); 
-            exit; 
-        } 
-        
-        return json_decode($result); 
+            if (strpos($result, "<br") !== false) { 
+                var_dump($result); 
+                exit; 
+            } 
+            
+            return json_decode($result); 
         } 
 
         public function __construct($pageVisibility) {
@@ -45,12 +45,15 @@
         public function execute() {
 
             if(!empty($_GET["logout"])){
+                $data = [];
+                $data["key"] = $_SESSION["key"];
+                $this->callAPI("signout", $data); // passer un dictionnaire
                 session_unset();
                 session_destroy();
                 session_start();
             }
 
-            if(!empty($_SESSION["visibility"])) {
+            if(empty($_SESSION["visibility"])) {
                 $_SESSION["visibility"] = commonAction::$VISIBILITY_PUBLIC; // un guest!
             }
 

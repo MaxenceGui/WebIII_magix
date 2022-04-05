@@ -14,16 +14,17 @@
             if(isset($_POST["username"])){
                 $data = [];
                 $data["username"] = $_POST["username"];
-                $data["passwordd"] = $_POST["password"];
+                $data["password"] = $_POST["password"];
 
                 $result = CommonAction::callAPI("signin", $data);
 
                 if($result != "INVALID_USERNAME_PASSWORD"){
-                    var_dump($result);
-                    exit;
-                    // $_SESSION["key"] = $result->key;
-                    // header("location:index.php");
+                    // var_dump($result);
                     // exit;
+                    $_SESSION["key"] = $result->key;
+                    $_SESSION["visibility"] = 1;
+                    header("location:lobby.php");
+                    exit;
                 }
                 else{
                     $hasConnectionError = true;
