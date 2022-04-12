@@ -8,6 +8,8 @@
 
         protected function executeAction(){
 
-            return [];
+            $chat = "https://magix.apps-de-cours.com/server/#/chat/" . $_SESSION["key"];
+
+            return compact("chat");
         }
     }

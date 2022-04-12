@@ -4,6 +4,6 @@
         <meta charset="utf-8" >
 		<title> Magix </title>
         <link href="css/global.css" rel="stylesheet" />
-        <link href="js/javascript.js"/>
+        <script src="js/javascript.js"></script>
     </head>
     <body>

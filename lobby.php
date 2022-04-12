@@ -7,10 +7,19 @@
 ?>
 <h1> Vous êtes connectés</h1>
 
-<button>Pratique</button>
-<button>Jouez</button>
-<button>Quitter</button>
-<button>Regarder une partie</button>
-<button>Deck</button>
+<iframe class="chatbox" style="width:700px;height:240px;" onload="applyStyles(this)"
+
+        src=<?= $data["chat"] ?>> 
+
+</iframe> 
+
+<div>
+    <button onClick='jouer("TRAINING")'>Pratique</button>
+    <button onClick='jouer("PVP")'>Jouez (PVP) NE PAS CLIQUER POUR L'INSTANT</button>
+    <button>Quitter</button>
+    <button>Regarder une partie</button>
+    <button>Deck</button>
+</div>
+
 
 <h6><a href="?logout=true">Déconnexion</a></h6>
