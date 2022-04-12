@@ -1,3 +1,5 @@
+
+
 window.addEventListener("load",() =>{
     
     let lieu = location.href
@@ -76,8 +78,6 @@ const gameState = () =>{
     .then(response => response.json())
     .then(result => {
         
-
-        console.log(result)
         if (typeof result !== "object"){
             document.querySelector(".texteBienvenu").innerHTML = result;
         }
@@ -99,7 +99,12 @@ const gameState = () =>{
              // Ses cartes en jeu
              document.querySelector(".joueurBoard").innerHTML = "Jeu du joueur : " + result.board;
              // Ses cartes en main
-             document.querySelector(".joueurCarte").innerHTML = "Carte du joueur : " + result.hand;
+             console.log(result.hand[0])
+             let main = document.querySelector(".joueurCarte").append(new Carte(result.hand[0]).createCard()) //= "Carte du joueur : " + result.hand;
+            //  for (card in result.hand) {
+            //      let child = new Carte(card).createCard();
+            //      main.append(child);
+            //  }
     
              // info sur la partie
              document.querySelector(".remaingCardsCount").innerHTML = "Carte du joueur : " + result.remainingCardsCount;
@@ -111,4 +116,29 @@ const gameState = () =>{
         }     
         setTimeout(gameState, 1000); // en plaçant le setTimeout ici on évite de faire des appels en recevant le résultat
     })
+}
+
+class Carte{
+
+    constructor(dict){
+        this.id = dict.id;
+        this.cost = dict.cost;
+        this.hp = dict.hp;
+        this.atk = dict.atk;
+        this.mec = dict.mechanics;
+        this.dedicated = dict.dedicated;
+        this.uid = dict.uid;
+    }
+
+    createCard(){
+
+        //fonctionne jusqu'ici! À la création du div
+        let carte = document.createElement('div');
+        let infoCarte = document.createElement('div');
+        let mechanics = document.createElement('div');
+        infoCarte.innerHTML = this.id + " " + this.cost + " " + this.hp + " " + this.atk + " " + this.dedicated + " " + this.uid
+        mechanics.innerHTML = this.mec;
+        carte.append(infoCarte);
+        carte.append(mechanics);
+    }
 }
