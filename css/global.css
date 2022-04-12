@@ -1,0 +1,78 @@
+* {
+    margin:0;
+    padding:0;
+}
+
+/* Classe de game.php*/
+.texteBienvenu{
+    background-color: red;
+}
+
+/* Michant*/
+.michantDiv{
+    color: red;
+}
+.infoMichant{
+    color: red;
+}
+.michantClassHero{
+    color: red;
+}
+.michantNbCarte{
+    color: red;
+}
+.michantHP{
+    color: red;
+}
+.michantMP{
+    color: red;
+}
+.michantLostCount{
+    color: red;
+}
+.michantBoard{
+    color: red;
+}
+
+/* Joueur*/
+.joueurDiv{
+    color: red;
+}
+.infoJoueur{
+    color: red;
+}
+.joueurClassHero{
+    color: red;
+}
+.joueurHP{
+    color: red;
+}
+.joueurMP{
+    color: red;
+}
+.joueurBoard{
+    color: red;
+}
+.joueurCarte{
+    color: red;
+}
+
+/* Partie*/
+.partieDiv{
+    color: red;
+}
+.infoPartie{
+    color: red;
+}
+.remaingCardsCount{
+    color: red;
+}
+.remaingTurnTime{
+    color: red;
+}
+.talent{
+    color: red;
+}
+.tourJoueur{
+    color: red;
+}

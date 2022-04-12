@@ -1,26 +1,9 @@
 window.addEventListener("load",() =>{
     
-    const exemple = () =>{
-        fetch("ajax.php", {})
-        .then(response => response.json())
-        .then(result => {
-            result.forEach(element => {
-                console.log(element);
-                if (element.status == 1){
-                    document.querySelector("#"+element.name).src = "img/light-on.png"
-                    // document.querySelector("#light" + light.id).src = "img/light-" + (light.status == "1" ? "on" : "off") + ".png";
-                    // Cette façon de faire permet de sauver une ligne de code en concatenant le if else (? et :)
-                }
-                else{
-                    document.querySelector("#"+element.name).src = "img/light-off.png"
-                }
-            });
-            setTimeout(updateLights, 5000); // en plaçant le setTimeout ici on évite de faire des appels en recevant le résultat
-        })
+    let lieu = location.href
+    if (lieu == "http://localhost/WebIII_magix/game.php"){
+        setTimeout(gameState, 1000); // Appel initial (attendre 1 seconde)
     }
-
-    //exemple();
-  
 })
 
 const applyStyles = iframe => {
@@ -61,5 +44,50 @@ const jouer = (type) => {
         else{
             alert("connexion failed")
         }
+    })
+}
+
+const gameState = () =>{
+    fetch("ajax.php", {
+        method: "POST",
+        credentials: "include"
+    })
+    .then(response => response.json())
+    .then(result => {
+        
+
+        console.log(result)
+        if (typeof result !== "object"){
+            document.querySelector(".texteBienvenu").innerHTML = result;
+        }
+        else {
+            document.querySelector(".texteBienvenu").innerHTML = result.welcomeText
+            // information du méchant
+            document.querySelector(".michantClassHero").innerHTML = "classe du michant : " + result.opponent.heroClass;
+            document.querySelector(".michantNbCarte").innerHTML = "nb Carte du michant : " + result.opponent.handSize;
+            document.querySelector(".michantHP").innerHTML = "HP du michant : " + result.opponent.hp;
+            document.querySelector(".michantMP").innerHTML = "MP du michant : " + result.opponent.mp;
+            document.querySelector(".michantLostCount").innerHTML = "Partie perdu du michant : " + result.opponent.lossCount;
+            // Ses cartes en jeu
+            document.querySelector(".michantBoard").innerHTML = "Jeu du michant : " + result.opponent.board;
+    
+             // information du joueur
+             document.querySelector(".joueurClassHero").innerHTML = "classe du joueur : " + result.heroClass;
+             document.querySelector(".joueurHP").innerHTML = "HP du joueur : " + result.hp;
+             document.querySelector(".joueurMP").innerHTML = "MP du joueur : " + result.mp;
+             // Ses cartes en jeu
+             document.querySelector(".joueurBoard").innerHTML = "Jeu du joueur : " + result.board;
+             // Ses cartes en main
+             document.querySelector(".joueurCarte").innerHTML = "Carte du joueur : " + result.hand;
+    
+             // info sur la partie
+             document.querySelector(".remaingCardsCount").innerHTML = "Carte du joueur : " + result.remainingCardsCount;
+             document.querySelector(".remaingTurnTime").innerHTML = "Temps du tour : " + result.remainingTurnTime;
+             document.querySelector(".talent").innerHTML = "Talent : " + result.talent;
+    
+             // tour du joueur?
+             document.querySelector(".tourJoueur").innerHTML = "Tour du joueur? : " + result.yourTurn;
+        }     
+        setTimeout(gameState, 1000); // en plaçant le setTimeout ici on évite de faire des appels en recevant le résultat
     })
 }

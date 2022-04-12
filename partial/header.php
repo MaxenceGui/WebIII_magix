@@ -3,7 +3,7 @@
     <head>
         <meta charset="utf-8" >
 		<title> Magix </title>
-        <link href="css/global.css" rel="stylesheet" />
+        <link rel="stylesheet" href="css/global.css">
         <script src="js/javascript.js"></script>
     </head>
     <body>

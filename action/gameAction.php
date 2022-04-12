@@ -7,7 +7,7 @@
         }
 
         protected function executeAction(){
-            
+
             return [];
         }
     }

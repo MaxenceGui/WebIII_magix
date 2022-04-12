@@ -10,15 +10,17 @@
 		protected function executeAction() {
 
             $result = "";
+            $data = [];
+            $data["key"] = $_SESSION["key"];
 
             if(!empty($_POST["type"])){
                 $type = $_POST["type"];
-                
-                $data = [];
-                $data["key"] = $_SESSION["key"];
                 $data["type"] = $type;
 
                 $result  = CommonAction::callAPI("games/auto-match", $data);
+            }
+            else{
+                $result = CommonAction::callAPI("games/state", $data);
             }
 
 			return compact("result");
