@@ -2,7 +2,7 @@
     require_once("action/gameAction.php");
     $action = new GameAction();
     $data = $action->execute();
-    
+
     require_once("partial/header.php");
 ?>
 <h1 class="texteBienvenu">Game On</h1>
@@ -38,4 +38,7 @@
 
 <div class="tourJoueur"></div>
 
-<h6><a href="?logout=true">Déconnexion</a></h6>
+<button onClick='jouerCoup("SURRENDER")'>Abandonner</button>
+<button onClick='jouerCoup("HERO_POWER")'>Pouvoir</button>
+<button onClick='jouerCoup("END_TURN")'>Fin du tour</button>
+<button onClick='revenirLobby()'>lobby</button>

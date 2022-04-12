@@ -39,12 +39,33 @@ const jouer = (type) => {
     .then(result => {
 
         if (result == "JOINED_PVP" || result == "CREATED_PVP" || result == "JOINED_TRAINING"){
-            document.location.href="game.php"
+            document.location.href="game.php";
         }
         else{
-            alert("connexion failed")
+            alert("connexion failed");
         }
     })
+}
+
+const jouerCoup = (type, uid=null, targetuid=null) =>{
+
+    formData = new FormData();
+    formData.append("type", type);
+    formData.append("uid", uid);
+    formData.append("targetuid", targetuid);
+
+    fetch("ajax.php", {
+        method : "POST",
+        body : formData
+    })
+    .then(response => response.json())
+    .then(result => {
+        document.querySelector(".texteBienvenu").innerHTML = result;
+    })
+}
+
+const revenirLobby = () => {
+    document.location.href="lobby.php";
 }
 
 const gameState = () =>{
@@ -61,7 +82,7 @@ const gameState = () =>{
             document.querySelector(".texteBienvenu").innerHTML = result;
         }
         else {
-            document.querySelector(".texteBienvenu").innerHTML = result.welcomeText
+            document.querySelector(".texteBienvenu").innerHTML = result.welcomeText;
             // information du méchant
             document.querySelector(".michantClassHero").innerHTML = "classe du michant : " + result.opponent.heroClass;
             document.querySelector(".michantNbCarte").innerHTML = "nb Carte du michant : " + result.opponent.handSize;

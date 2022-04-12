@@ -14,10 +14,23 @@
             $data["key"] = $_SESSION["key"];
 
             if(!empty($_POST["type"])){
+
                 $type = $_POST["type"];
                 $data["type"] = $type;
 
-                $result  = CommonAction::callAPI("games/auto-match", $data);
+                if(!empty($_POST["uid"])){
+
+                    $uid = $_POST["uid"];
+                    $targetuid = $_POST["targetuid"];
+                    $data["uid"] = $uid;
+                    $data["targetuid"] = $targetuid;
+
+                    $result = CommonAction::callAPI("games/action", $data);
+                }
+                else{
+                    
+                    $result  = CommonAction::callAPI("games/auto-match", $data);
+                }
             }
             else{
                 $result = CommonAction::callAPI("games/state", $data);
