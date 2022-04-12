@@ -83,12 +83,14 @@ const gameState = () =>{
         }
         else {
             document.querySelector(".texteBienvenu").innerHTML = result.welcomeText;
+            
             // information du méchant
             document.querySelector(".michantClassHero").innerHTML = "classe du michant : " + result.opponent.heroClass;
             document.querySelector(".michantNbCarte").innerHTML = "nb Carte du michant : " + result.opponent.handSize;
             document.querySelector(".michantHP").innerHTML = "HP du michant : " + result.opponent.hp;
             document.querySelector(".michantMP").innerHTML = "MP du michant : " + result.opponent.mp;
             document.querySelector(".michantLostCount").innerHTML = "Partie perdu du michant : " + result.opponent.lossCount;
+           
             // Ses cartes en jeu
             document.querySelector(".michantBoard").innerHTML = "Jeu du michant : " + result.opponent.board;
     
@@ -96,16 +98,14 @@ const gameState = () =>{
              document.querySelector(".joueurClassHero").innerHTML = "classe du joueur : " + result.heroClass;
              document.querySelector(".joueurHP").innerHTML = "HP du joueur : " + result.hp;
              document.querySelector(".joueurMP").innerHTML = "MP du joueur : " + result.mp;
+            
              // Ses cartes en jeu
              document.querySelector(".joueurBoard").innerHTML = "Jeu du joueur : " + result.board;
+            
              // Ses cartes en main
              console.log(result.hand[0])
-             let main = document.querySelector(".joueurCarte").append(new Carte(result.hand[0]).createCard()) //= "Carte du joueur : " + result.hand;
-            //  for (card in result.hand) {
-            //      let child = new Carte(card).createCard();
-            //      main.append(child);
-            //  }
-    
+             document.querySelector(".joueurCarte").append(new Carte(result.hand[0]).createCard()) //= "Carte du joueur : " + result.hand;
+
              // info sur la partie
              document.querySelector(".remaingCardsCount").innerHTML = "Carte du joueur : " + result.remainingCardsCount;
              document.querySelector(".remaingTurnTime").innerHTML = "Temps du tour : " + result.remainingTurnTime;
@@ -121,6 +121,8 @@ const gameState = () =>{
 class Carte{
 
     constructor(dict){
+
+        
         this.id = dict.id;
         this.cost = dict.cost;
         this.hp = dict.hp;
@@ -132,13 +134,16 @@ class Carte{
 
     createCard(){
 
-        //fonctionne jusqu'ici! À la création du div
-        let carte = document.createElement('div');
-        let infoCarte = document.createElement('div');
+        let carte = document.createElement("div");
+        let infoCarte = document.createElement("div");
         let mechanics = document.createElement('div');
-        infoCarte.innerHTML = this.id + " " + this.cost + " " + this.hp + " " + this.atk + " " + this.dedicated + " " + this.uid
-        mechanics.innerHTML = this.mec;
+        
         carte.append(infoCarte);
         carte.append(mechanics);
+
+        infoCarte.innerHTML = "Coût : " + this.cost + " HP : " + this.hp + " ATK : " + this.atk + " UID : " + this.uid
+        mechanics.innerHTML = this.mec;
+
+        document.querySelector(".joueurCarte").append(carte);
     }
 }
