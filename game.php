@@ -5,18 +5,25 @@
 
     require_once("partial/header.php");
 ?>
-<h1 class="texteBienvenu">Game On</h1>
 
-<div class="michantDiv">
-    <div class="infoMichant">
+<div id="zoneTop">
+    <h1 class="texteBienvenu">Game On</h1>
+
+    <div class="michantDiv">
         <div class="michantClassHero"></div>
-        <div class="michantNbCarte"></div>
-        <div class="michantHP"></div>
-        <div class="michantMP"></div>
-        <div class="michantLostCount"></div>
+        <div class="infoMichant">
+            <div class="michantNbCarte"></div>
+            <div class="michantHP"></div>
+            <div class="michantMP"></div>
+            <div class="michantLostCount"></div>
+        </div>
     </div>
-    <div class="michantBoard"></div>
 </div>
+
+<div class="michantBoard"></div>
+
+
+
 
 <div class="joueurDiv">
     <div class="infoJoueur">
@@ -25,7 +32,6 @@
         <div class="joueurMP"></div>
     </div>
     <div class="joueurBoard"></div>
-    <div class="joueurCarte"></div>
 </div>
 
 <div class="partieDiv">
@@ -34,6 +40,9 @@
         <div class="remaingTurnTime"></div>
         <div class="talent"></div>
     </div>
+</div>
+
+<div class="carteEnMain">
 </div>
 
 <div class="tourJoueur"></div>

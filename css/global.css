@@ -3,35 +3,70 @@
     padding:0;
 }
 
+#zoneTop{
+    background-color: indigo;
+    height: 25%;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+
 /* Classe de game.php*/
 .texteBienvenu{
     background-color: red;
+    text-align: center;
+    margin: auto;
+    width: 50%;
 }
 
 /* Michant*/
 .michantDiv{
-    color: red;
+    margin: auto;
+    background-color: grey;
+    color: black;
+    width: 50%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }
 .infoMichant{
-    color: red;
+    color: black;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
 }
 .michantClassHero{
-    color: red;
+    color: black;
+    display: flex;
+    flex-direction: column;
 }
 .michantNbCarte{
-    color: red;
+    margin: 2%;
+    color: black;
 }
 .michantHP{
-    color: red;
+    margin: 2%;
+    color: black;
 }
 .michantMP{
-    color: red;
+    margin: 2%;
+    color: black;
 }
 .michantLostCount{
-    color: red;
+    margin: 2%;
+    color: black;
 }
 .michantBoard{
-    color: red;
+    display: flex;
+    flex-direction: row;
+    color: black;
+}
+
+.michantCarte{
+    background:hotpink;
+    color: black;
 }
 
 /* Joueur*/
@@ -53,12 +88,49 @@
 .joueurBoard{
     color: red;
 }
+
+.carteEnMain{
+    background-color: cadetblue;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
 .joueurCarte{
+    background-color: blueviolet;
+    position:relative;
+    color: white;
+    display : flex;
+    flex-direction: row;
+    width: 30%;
+}
+.carteInfoVie{
+    background-color: white;
+    width: 30%;
     color: red;
+}
+
+.carteInfoCout{
+    background-color: white;
+    width: 30%;
+    color: blue;
+}
+
+.carteInfoAtk{
+    background-color: white;
+    width: 30%;
+    color: red;
+}
+
+/*Pour les habilités*/
+.carteInfoHab{
+    background-color:lightblue;
+    color: black;
+    width: auto;
 }
 
 /* Partie*/
 .partieDiv{
+    background-color: chartreuse;
     color: red;
 }
 .infoPartie{
