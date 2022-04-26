@@ -1,24 +1,11 @@
 let carteEnMain = [];
 let carteMechant = [];
 let carteEnJeu = [];
-let draggable = false;
 
 window.addEventListener("load",() =>{
     carteEnMain = [];
     carteMechant = [];
     carteEnJeu = [];
-
-
-    // Pour le toucher du drag
-    surfaceJoueur = document.querySelector(".joueurBoard");
-    surfaceJoueur.addEventListener("touchstart", dragStart, false);
-    surfaceJoueur.addEventListener("touchend", dragEnd, false);
-    surfaceJoueur.addEventListener("touchmove", drag, false);
-
-    // Pour la souris du drag
-    surfaceJoueur.addEventListener("mousedown", dragStart, false);
-    surfaceJoueur.addEventListener("mouseup", dragEnd, false);
-    surfaceJoueur.addEventListener("mousemove", drag, false);
 
     let lieu = location.href
     if (lieu == "http://localhost/WebIII_magix/game.php"){
@@ -244,42 +231,4 @@ const gameState = () =>{
         }     
         setTimeout(gameState, 1000); // en plaçant le setTimeout ici on évite de faire des appels en recevant le résultat
     })
-}
-
-// Source : https://www.kirupa.com/html5/drag.htm
-
-const dragStart = (e) =>{
-
-    let startX = 0;
-    let startY = 0;
-
-    if (e.type == "touchstart"){
-        startX = e.touches[0].clientX - 0;
-        startY = e.touches[0].clientY - 0;
-    }
-    else{
-        startX = e.clientX - 0;
-        startY = e.clientY - 0;
-    }
-
-    if (e.target == document.querySelector(".joueurCarte")){
-        draggable = true;
-    }
-}
-
-const drag = (e) =>{
-
-    let currentX = 0;
-    let currentY = 0;
-
-    if (draggable){
-        
-        e.preventDefault();
-
-
-        if (e.type == "touchmove"){
-            currentX = e.touches[0].clientX - startX;
-            currentY = e.touches[0].clientY - startY;
-        }
-    }
 }
