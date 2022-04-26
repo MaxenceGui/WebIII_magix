@@ -3,13 +3,25 @@
     padding:0;
 }
 
+#zoneJeu{
+    height: 100vh;
+    width: 100%;
+}
 #zoneTop{
     background-color: indigo;
     height: 25%;
     width: 100%;
     display: flex;
-    flex-direction: column;
+    flex-direction: row;
     justify-content: center;
+}
+
+#zoneJoueur{
+    background-color: indigo;
+    height: 25%;
+    width: 100%;
+    display: flex;
+    flex-direction: row;
 }
 
 
@@ -59,9 +71,11 @@
     color: black;
 }
 .michantBoard{
+    background-color: black;
+    width: 100%;
+    height: 25%;
     display: flex;
     flex-direction: row;
-    color: black;
 }
 
 .michantCarte{
@@ -86,11 +100,17 @@
     color: red;
 }
 .joueurBoard{
-    color: red;
+    width: 100%;
+    height: 25%;
+    background-color: violet;
+    border: solid 5px rgb(78, 14, 78);
 }
 
 .carteEnMain{
     background-color: cadetblue;
+    width: 100%;
+    height: 80%;
+    border: solid 5px rgb(6, 46, 121);
     display: flex;
     flex-direction: row;
     align-items: center;
