@@ -21,9 +21,12 @@
                 if(!empty($_POST["uid"])){
 
                     $uid = $_POST["uid"];
-                    $targetuid = $_POST["targetuid"];
                     $data["uid"] = $uid;
-                    $data["targetuid"] = $targetuid;
+
+                    if(!empty($_POST["targetuid"])){
+                        $targetuid = $_POST["targetuid"];
+                        $data["targetuid"] = $targetuid;
+                    }
 
                     $result = CommonAction::callAPI("games/action", $data);
                 }

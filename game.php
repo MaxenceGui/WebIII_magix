@@ -17,6 +17,7 @@
         <div class="michantDiv">
             <h1 class="texteBienvenu">Game On</h1>
             <div class="michantClassHero"></div>
+            <div class="portraitMichant"></div>
             <div class="infoMichant">
                 <div class="michantNbCarte"></div>
                 <div class="michantHP"></div>

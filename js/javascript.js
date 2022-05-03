@@ -1,6 +1,7 @@
 let carteEnMain = [];
 let carteMechant = [];
 let carteEnJeu = [];
+let carteJAtk = 0;
 
 window.addEventListener("load",() =>{
     carteEnMain = [];
@@ -99,126 +100,128 @@ const gameState = () =>{
             // Ses cartes en jeu
             // document.querySelector(".michantBoard").innerHTML = "Jeu du michant : " + result.opponent.board;
             // console.log(result.opponent.board)
-
+            document.querySelector(".michantBoard").innerHTML="";
             for (const carte in result.opponent.board) {
-                if (carteMechant[carte] != result.opponent.board[carte].id){
-                    
-                    carteMechant[carte] = (result.opponent.board[carte].id);   
-                    
-                    // frame de la carte             
-                    let carteStruct = document.createElement("div");
-                    carteStruct.classList.add("michantCarte");
-                    
-                    // boite pour la vie
-                    let carteVie = document.createElement("div");
-                    carteVie.classList.add("carteInfoVie");
-                    carteStruct.append(carteVie);
-                    carteVie.innerHTML = " HP : " + result.opponent.board[carte].hp;
+                // frame de la carte             
+                let carteStruct = document.createElement("div");
+                carteStruct.classList.add("michantCarte");
 
-                    // // boite pour le coût
-                    carteCout = document.createElement("div");
-                    carteCout.classList.add("carteInfoCout");
-                    carteStruct.append(carteCout);
-                    carteCout.innerHTML = " Coût : "  + result.opponent.board[carte].cost;
+                carteStruct.onclick = () => {
+                    console.log("ATTACK", carteJAtk, result.opponent.board[carte].uid);
+                    jouerCoup("ATTACK", carteJAtk, result.opponent.board[carte].uid);
+                };
+                
+                // boite pour la vie
+                let carteVie = document.createElement("div");
+                carteVie.classList.add("carteInfoVie");
+                carteStruct.append(carteVie);
+                carteVie.innerHTML = " HP : " + result.opponent.board[carte].hp;
 
-                    // // boite pour l'attaque
-                    carteAtk = document.createElement("div");
-                    carteAtk.classList.add("carteInfoAtk");
-                    carteAtk.innerHTML = " ATK : " + result.opponent.board[carte].atk;
-                    carteStruct.append(carteAtk);
+                // // boite pour le coût
+                carteCout = document.createElement("div");
+                carteCout.classList.add("carteInfoCout");
+                carteStruct.append(carteCout);
+                carteCout.innerHTML = " Coût : "  + result.opponent.board[carte].cost;
 
-                    // // Description
-                    carteInfo = document.createElement("div");
-                    carteInfo.classList.add("carteInfoHab");
-                    carteInfo.innerHTML = " Description \n" + result.opponent.board[carte].mechanics;
-                    carteStruct.append(carteInfo);
+                // // boite pour l'attaque
+                carteAtk = document.createElement("div");
+                carteAtk.classList.add("carteInfoAtk");
+                carteAtk.innerHTML = " ATK : " + result.opponent.board[carte].atk;
+                carteStruct.append(carteAtk);
 
-                    document.querySelector(".michantBoard").append(carteStruct);
+                // // Description
+                carteInfo = document.createElement("div");
+                carteInfo.classList.add("carteInfoHab");
+                carteInfo.innerHTML = " Description \n" + result.opponent.board[carte].mechanics;
+                carteStruct.append(carteInfo);
 
-                } 
+                document.querySelector(".michantBoard").append(carteStruct);
             }
-    
             // information du joueur
             document.querySelector(".joueurClassHero").innerHTML = "classe du joueur : " + result.heroClass;
             document.querySelector(".joueurHP").innerHTML = "HP du joueur : " + result.hp;
             document.querySelector(".joueurMP").innerHTML = "MP du joueur : " + result.mp;
             
             // Ses cartes en jeu
+            document.querySelector(".joueurBoard").innerHTML = "";
             for (const carte in result.board) {
-                if (carteEnJeu[carte] != result.board[carte].id){
-                    
-                    carteEnJeu[carte] = (result.board[carte].id);   
-                    
-                    // frame de la carte             
-                    let carteStruct = document.createElement("div");
-                    carteStruct.classList.add("joueurCarte");
+                // frame de la carte             
+                let carteStruct = document.createElement("div");
+                carteStruct.classList.add("joueurCarte");
 
-                    // boite pour la vie
-                    let carteVie = document.createElement("div");
-                    carteVie.classList.add("carteInfoVie");
-                    carteStruct.append(carteVie);
-                    carteVie.innerHTML = " HP : " + result.board[carte].hp;
+                carteStruct.onclick = () => {
+                    carteStruct.style.borderColor = "red";
+                    carteJAtk = result.board[carte].uid;
+                    console.log(carteJAtk);
+                };
 
-                    // // boite pour le coût
-                    carteCout = document.createElement("div");
-                    carteCout.classList.add("carteInfoCout");
-                    carteStruct.append(carteCout);
-                    carteCout.innerHTML = " Coût : "  + result.board[carte].cost;
+                // boite pour la vie
+                let carteVie = document.createElement("div");
+                carteVie.classList.add("carteInfoVie");
+                carteStruct.append(carteVie);
+                carteVie.innerHTML = " HP : " + result.board[carte].hp;
 
-                    // // boite pour l'attaque
-                    carteAtk = document.createElement("div");
-                    carteAtk.classList.add("carteInfoAtk");
-                    carteAtk.innerHTML = " ATK : " + result.board[carte].atk;
-                    carteStruct.append(carteAtk);
+                // // boite pour le coût
+                carteCout = document.createElement("div");
+                carteCout.classList.add("carteInfoCout");
+                carteStruct.append(carteCout);
+                carteCout.innerHTML = " Coût : "  + result.board[carte].cost;
 
-                    // // Description
-                    carteInfo = document.createElement("div");
-                    carteInfo.classList.add("carteInfoHab");
-                    carteInfo.innerHTML = " Description \n" + result.hand[carte].mechanics;
-                    carteStruct.append(carteInfo);
+                // // boite pour l'attaque
+                carteAtk = document.createElement("div");
+                carteAtk.classList.add("carteInfoAtk");
+                carteAtk.innerHTML = " ATK : " + result.board[carte].atk;
+                carteStruct.append(carteAtk);
 
-                    document.querySelector(".joueurBoard").append(carteStruct);
+                // // Description
+                carteInfo = document.createElement("div");
+                carteInfo.classList.add("carteInfoHab");
+                carteInfo.innerHTML = " Description \n" + result.hand[carte].mechanics;
+                carteStruct.append(carteInfo);
 
-                } 
+                document.querySelector(".joueurBoard").append(carteStruct);
             }
             
              // Ses cartes en main
+            document.querySelector(".carteEnMain").innerHTML = "";
             for (const carte in result.hand) {
-                if (carteEnMain[carte] != result.hand[carte].id){
-                    
-                    carteEnMain[carte] = (result.hand[carte].id);   
-                    
-                    // frame de la carte             
-                    let carteStruct = document.createElement("div");
-                    carteStruct.classList.add("joueurCarte");
-                    
-                    // boite pour la vie
-                    let carteVie = document.createElement("div");
-                    carteVie.classList.add("carteInfoVie");
-                    carteStruct.append(carteVie);
-                    carteVie.innerHTML = " HP : " + result.hand[carte].hp;
+              
+                // frame de la carte             
+                let carteStruct = document.createElement("div");
+                carteStruct.classList.add("joueurCarte");
 
-                    // // boite pour le coût
-                    carteCout = document.createElement("div");
-                    carteCout.classList.add("carteInfoCout");
-                    carteStruct.append(carteCout);
-                    carteCout.innerHTML = " Coût : "  + result.hand[carte].cost;
+                carteStruct.onclick = () => {
+                    carteEnMain.pop(result.hand[carte].uid);
+                    carteStruct.remove();
+                    jouerCoup("PLAY", result.hand[carte].uid);
+                };
+                
+                // boite pour la vie
+                let carteVie = document.createElement("div");
+                carteVie.classList.add("carteInfoVie");
+                carteStruct.append(carteVie);
+                carteVie.innerHTML = " HP : " + result.hand[carte].hp;
 
-                    // // boite pour l'attaque
-                    carteAtk = document.createElement("div");
-                    carteAtk.classList.add("carteInfoAtk");
-                    carteAtk.innerHTML = " ATK : " + result.hand[carte].atk;
-                    carteStruct.append(carteAtk);
 
-                    // // Description
-                    carteInfo = document.createElement("div");
-                    carteInfo.classList.add("carteInfoHab");
-                    carteInfo.innerHTML = " Description \n" + result.hand[carte].mechanics;
-                    carteStruct.append(carteInfo);
+                // // boite pour le coût
+                carteCout = document.createElement("div");
+                carteCout.classList.add("carteInfoCout");
+                carteStruct.append(carteCout);
+                carteCout.innerHTML = " Coût : "  + result.hand[carte].cost;
 
-                    document.querySelector(".carteEnMain").append(carteStruct);
+                // // boite pour l'attaque
+                carteAtk = document.createElement("div");
+                carteAtk.classList.add("carteInfoAtk");
+                carteAtk.innerHTML = " ATK : " + result.hand[carte].atk;
+                carteStruct.append(carteAtk);
 
-                } 
+                // // Description
+                carteInfo = document.createElement("div");
+                carteInfo.classList.add("carteInfoHab");
+                carteInfo.innerHTML = " Description \n" + result.hand[carte].mechanics;
+                carteStruct.append(carteInfo);
+
+                document.querySelector(".carteEnMain").append(carteStruct);
             }
             
             // info sur la partie
