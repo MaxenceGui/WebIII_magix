@@ -1,12 +1,6 @@
-let carteEnMain = [];
-let carteMechant = [];
-let carteEnJeu = [];
 let carteJAtk = 0;
 
 window.addEventListener("load",() =>{
-    carteEnMain = [];
-    carteMechant = [];
-    carteEnJeu = [];
 
     let lieu = location.href
     if (lieu == "http://localhost/WebIII_magix/game.php"){
@@ -92,6 +86,9 @@ const gameState = () =>{
             
             // information du méchant
             document.querySelector(".michantClassHero").innerHTML = "classe du michant : " + result.opponent.heroClass;
+            document.querySelector(".portraitMichant").onclick = () => {
+                jouerCoup("ATTACK", carteJAtk, 0); // attaqué héros ennemi
+            }
             document.querySelector(".michantNbCarte").innerHTML = "nb Carte du michant : " + result.opponent.handSize;
             document.querySelector(".michantHP").innerHTML = "HP du michant : " + result.opponent.hp;
             document.querySelector(".michantMP").innerHTML = "MP du michant : " + result.opponent.mp;
@@ -145,7 +142,8 @@ const gameState = () =>{
             // Ses cartes en jeu
             document.querySelector(".joueurBoard").innerHTML = "";
             for (const carte in result.board) {
-                // frame de la carte             
+                // frame de la carte
+                console.log(result.board[carte].uid)             
                 let carteStruct = document.createElement("div");
                 carteStruct.classList.add("joueurCarte");
 
@@ -176,7 +174,7 @@ const gameState = () =>{
                 // // Description
                 carteInfo = document.createElement("div");
                 carteInfo.classList.add("carteInfoHab");
-                carteInfo.innerHTML = " Description \n" + result.hand[carte].mechanics;
+                carteInfo.innerHTML = " Description \n" + result.board[carte].mechanics;
                 carteStruct.append(carteInfo);
 
                 document.querySelector(".joueurBoard").append(carteStruct);
@@ -191,8 +189,8 @@ const gameState = () =>{
                 carteStruct.classList.add("joueurCarte");
 
                 carteStruct.onclick = () => {
-                    carteEnMain.pop(result.hand[carte].uid);
                     carteStruct.remove();
+                    console.log(result.hand[carte].uid)
                     jouerCoup("PLAY", result.hand[carte].uid);
                 };
                 
