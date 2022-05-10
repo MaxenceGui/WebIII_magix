@@ -5,21 +5,28 @@
     $action = new LobbyAction();
     $data = $action->execute();
 ?>
-<h1> Vous êtes connectés</h1>
 
-<iframe class="chatbox" style="width:700px;height:240px;" onload="applyStyles(this)"
+<div id="lobby">
+    <div class="lobbyBouton">
+        <button onClick='jouer("TRAINING")'>Pratique</button>
+        <button onClick='jouer("PVP")'>Jouez (PVP)</button>
+        <button onClick='allerHisto()'>historique</button>
+        <button>Regarder une partie</button>
+        <button>Deck</button>
+        <button>Quitter</button>
+        <h6><a href="?logout=true">Déconnexion</a></h6>
+    </div>
+    <div class ="chatBox">
+        <h1> Vous êtes connectés</h1>
+        <iframe class="chatbox" style="width:700px;height:240px;" onload="applyStyles(this)"
 
-        src=<?= $data["chat"] ?>> 
+            src=<?= $data["chat"] ?>> 
 
-</iframe> 
-
-<div>
-    <button onClick='jouer("TRAINING")'>Pratique</button>
-    <button onClick='jouer("PVP")'>Jouez (PVP) NE PAS CLIQUER POUR L'INSTANT</button>
-    <button>Quitter</button>
-    <button>Regarder une partie</button>
-    <button>Deck</button>
+        </iframe>
+    </div>
 </div>
 
 
-<h6><a href="?logout=true">Déconnexion</a></h6>
+ 
+
+

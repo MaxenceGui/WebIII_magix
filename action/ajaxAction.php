@@ -1,5 +1,6 @@
 <?php
 	require_once("action/CommonAction.php");
+    require_once("action/DAO/ResultDAO.php");
 
 	class AjaxAction extends CommonAction {
 
@@ -35,7 +36,16 @@
                     $result  = CommonAction::callAPI("games/auto-match", $data);
                 }
             }
+            elseif(!empty($_POST["gagnant"])){
+                    $joueur = $_POST["joueur"];
+                    $opposant = $_POST["opposant"];
+                    $gagnant = $_POST["gagnant"];
+                    ResultDAO::addResult($joueur, $opposant, $gagnant);
+            }
             else{
+                if(!($_POST["vider"])){
+                    ResultDAO::deleteResult();
+                }
                 $result = CommonAction::callAPI("games/state", $data);
             }
 

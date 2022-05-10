@@ -3,6 +3,22 @@
     padding:0;
 }
 
+button{
+    color: rgb(255,40,40);
+    background-color: pink;
+    border-color: white;
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    width: 50%;
+    height: 30%;
+    margin: 1% 1%;
+}
+
+h1{
+    text-align: center;
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    color: rgb(255,40,40);
+}
+
 #zoneJeu{
     height: 100vh;
     width: 100%;
@@ -22,6 +38,30 @@
     width: 100%;
     display: flex;
     flex-direction: row;
+}
+
+#lobby{
+    display: flex;
+    flex-direction: column;
+    height: 100vh;
+    width: 100%;
+}
+
+.lobbyBouton{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    width: 100%;
+    height: 20%;
+}
+
+.chatBox{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    margin: auto;
+    width: 50%;
+    height: 50%;
 }
 
 

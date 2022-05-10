@@ -20,9 +20,19 @@
         public static function addResult ($joueur, $opposant, $date, $gagnant){
             $connection = Connection::getConnection();
 
-            $statement = $connection->prepare("INSERT INTO resultat (joueur, opposant, date, gagnant) VALUES(?,?)");
-            $statement->bindParam(1,$author); //se protégez des SQL injections
-            $statement->bindParam(2,$answer); // se protégez des SQL injections
+            $statement = $connection->prepare("INSERT INTO resultat (joueur, opposant, gagnant) VALUES(?,?,?)");
+            $statement->bindParam(1,$joueur); //se protégez des SQL injections
+            $statement->bindParam(2,$opposant); // se protégez des SQL injections
+            $statement->bindParam(3,$gagnant); // se protégez des SQL injections
+            $statement->execute();
+            
+           return [];
+        }
+
+        public static function deleteResult (){
+            $connection = Connection::getConnection();
+
+            $statement = $connection->prepare("TRUNCATE resultat");
             $statement->execute();
             
            return [];

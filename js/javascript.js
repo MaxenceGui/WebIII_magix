@@ -1,10 +1,21 @@
 let carteJAtk = 0;
+let nomOpposant = "michant";
+let nomJoueur = "moi";
+let infoEntree = false;
 
 window.addEventListener("load",() =>{
 
     let lieu = location.href
     if (lieu == "http://localhost/WebIII_magix/game.php"){
         setTimeout(gameState, 1000); // Appel initial (attendre 1 seconde)
+        nomJoueur = sessionStorage.username;
+    }
+
+    if (lieu == "http://localhost/WebIII_magix/login.php"){
+        if (document.querySelector("#username").value != null){
+            nomJoueur = document.querySelector("#username").value;
+            sessionStorage.setItem("username", nomJoueur);
+        }
     }
 })
 
@@ -12,15 +23,15 @@ const applyStyles = iframe => {
     // Les valeurs sont celles données en exemple dans le document magic, il faudra les styliser
     let styles = {
         fontColor : "#333",
-        backgroundColor : "rgba(87, 41, 5, 0.2)", 
+        backgroundColor : "rgba(255, 192, 203, 0.8)", 
         fontGoogleName : "Sofia", 
         fontSize : "20px", 
         hideIcons : true, //(or false),
-        inputBackgroundColor : "red", 
-        inputFontColor : "blue", 
-        height : "700px", 
+        inputBackgroundColor : "lightblue", 
+        inputFontColor : "black", 
+        height : "400px", 
         memberListFontColor : "#ff00dd", 
-        memberListBackgroundColor : "white"
+        memberListBackgroundColor : "pink"
     }
 
     setTimeout(() => { 
@@ -66,8 +77,43 @@ const jouerCoup = (type, uid=null, targetuid=null) =>{
     })
 }
 
+const ecrireBD = (joueur, opposant, gagnant) =>{
+
+    formData = new FormData();
+    formData.append("joueur", joueur);
+    formData.append("opposant", opposant);
+    formData.append("gagnant", gagnant);
+
+    fetch("ajax.php", {
+        method : "POST",
+        body : formData
+    })
+    .then(response => response.json())
+    .then(result =>{
+        alert("information partie ajouté dans la bd");
+    })
+}
+
+const supprimerBD = () =>{
+    formData = new FormData();
+    formData.append("vider", 1);
+
+    fetch("ajax.php", {
+        method : "POST",
+        body : formData
+    })
+    .then(response => response.json())
+    .then(result =>{
+        alert("historique de partie supprimé");
+    })
+}
+
 const revenirLobby = () => {
     document.location.href="lobby.php";
+}
+
+const allerHisto =() =>{
+    document.location.href = "historique.php";
 }
 
 const gameState = () =>{
@@ -79,9 +125,21 @@ const gameState = () =>{
     .then(result => {
         
         if (typeof result !== "object"){
-            document.querySelector(".texteBienvenu").innerHTML = result;
+            if (result == "LAST_GAME_LOST" && !infoEntree){
+                document.querySelector(".texteBienvenu").innerHTML = "défaite";
+                ecrireBD(nomJoueur,nomOpposant, nomOpposant);
+                infoEntree = true;
+            }
+            else if (result == "LAST_GAME_WIN" && !infoEntree){
+                document.querySelector(".texteBienvenu").innerHTML = "Victoire";
+                ecrireBD(nomJoueur,nomOpposant, nomJoueur);
+                infoEntree = true;
+            }
         }
         else {
+
+            infoEntree = false;
+            nomOpposant = result.opponent.username;
             document.querySelector(".texteBienvenu").innerHTML = result.welcomeText;
             
             // information du méchant
