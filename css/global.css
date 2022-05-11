@@ -4,7 +4,7 @@
 }
 
 button{
-    color: rgb(255,40,40);
+    color: rgb(6, 68, 6);
     background-color: pink;
     border-color: white;
     font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
@@ -16,30 +16,80 @@ button{
 h1{
     text-align: center;
     font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
-    color: rgb(255,40,40);
+    color: rgb(6, 68, 6);
 }
 
-#zoneJeu{
+/* Élément de la page de login*/
+#zoneAccueil{
     height: 100vh;
     width: 100%;
+    background-color: black;
+    background-image: url("../img/background.gif");
+    background-attachment: fixed;
+    background-size: cover;
+    position: fixed;
 }
-#zoneTop{
-    background-color: indigo;
-    height: 25%;
-    width: 100%;
+
+#accueil{
     display: flex;
-    flex-direction: row;
+    flex-direction: column;
     justify-content: center;
-}
-
-#zoneJoueur{
-    background-color: indigo;
+    width: 25%;
     height: 25%;
-    width: 100%;
-    display: flex;
-    flex-direction: row;
+    margin: 10% auto;
 }
 
+.arcade{
+    position: fixed;
+    background-image: url("../img/Arcade-1.png");
+    background-size: contain;
+    width: 512px;
+    height: 512px;
+    margin: 29vh 65vw;
+}
+
+.character{
+    position: fixed;
+    background-image: url("../img/characters.gif");
+    background-size: cover;
+    width: 128px;
+    height: 128px;
+    border: 1px solid white;
+    margin: 85vh 0vw;
+}
+
+.formulaire{
+    justify-content:space-between;
+}
+
+.usager_label{
+    width: 50%;
+    margin: 0% auto;
+    text-align: center;
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    color: rgb(6,68,6);
+}
+
+.usager_input{
+    width: 50%;
+    margin: 0% auto;
+    text-align: center;
+}
+
+.mdp_label{
+    width: 50%;
+    margin: 0% auto;
+    text-align: center;
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    color: rgb(6,68,6);
+}
+
+.button_div{
+    margin: 2% 37%;
+    width: 50%;
+}
+
+/*Élément de la page lobby.php*/
 #lobby{
     display: flex;
     flex-direction: column;
@@ -64,6 +114,28 @@ h1{
     height: 50%;
 }
 
+
+/*id de la page game.php*/
+#zoneJeu{
+    height: 100vh;
+    width: 100%;
+}
+#zoneTop{
+    background-color: indigo;
+    height: 25%;
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+}
+
+#zoneJoueur{
+    background-color: indigo;
+    height: 25%;
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+}
 
 /* Classe de game.php*/
 .texteBienvenu{
