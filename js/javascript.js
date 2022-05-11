@@ -16,7 +16,9 @@ window.addEventListener("load",() =>{
             nomJoueur = document.querySelector("#username").value;
             sessionStorage.setItem("username", nomJoueur);
         }
+        //mouvementCharacter();
     }
+    tick();
 })
 
 const applyStyles = iframe => {
@@ -290,4 +292,16 @@ const gameState = () =>{
         }     
         setTimeout(gameState, 1000); // en plaçant le setTimeout ici on évite de faire des appels en recevant le résultat
     })
+}
+
+const mouvementCharacter = () =>{
+    let speed = 5;
+    let x = 0;
+    x += speed;
+    document.querySelector(".character").style.left = x + "px";
+}
+
+const tick = () =>{
+    mouvementCharacter();
+    window.requestAnimationFrame(tick);
 }

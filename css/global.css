@@ -4,8 +4,8 @@
 }
 
 button{
-    color: rgb(6, 68, 6);
-    background-color: pink;
+    color: rgb(255, 255, 255);
+    background-color: rgb(6, 68, 6);
     border-color: white;
     font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
     width: 50%;
@@ -17,6 +17,12 @@ h1{
     text-align: center;
     font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
     color: rgb(6, 68, 6);
+}
+
+a{
+    color: rgb(255, 255, 255);
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    text-decoration: none;
 }
 
 /* Élément de la page de login*/
@@ -41,21 +47,43 @@ h1{
 
 .arcade{
     position: fixed;
-    background-image: url("../img/Arcade-1.png");
+    background-image: url("../img/house.gif");
     background-size: contain;
-    width: 512px;
-    height: 512px;
-    margin: 29vh 65vw;
+    width: 256px;
+    height: 256px;
+    margin: 64vh 0vw;
 }
 
 .character{
-    position: fixed;
+    position: absolute;
     background-image: url("../img/characters.gif");
     background-size: cover;
     width: 128px;
     height: 128px;
-    border: 1px solid white;
-    margin: 85vh 0vw;
+    margin: 85vh -10vw;
+    -webkit-animation: myanim 10s;
+    animation: myanim 10s;
+    animation-iteration-count: infinite;
+}
+
+@-webkit-keyframes myanim
+{
+    0%  {left: 0vw;}
+    100% {left:120vw;}
+}
+@keyframes myanim
+{
+    0%  {left: 0vw;}
+    100% {left:120vw;}
+}
+
+.chat{
+    position: fixed;
+    background-image: url("../img/chat.gif");
+    background-size: cover;
+    width: 64px;
+    height: 64px;
+    margin: 28vh 74vw;
 }
 
 .formulaire{
@@ -67,7 +95,7 @@ h1{
     margin: 0% auto;
     text-align: center;
     font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
-    color: rgb(6,68,6);
+    color: rgb(255,255,255);
 }
 
 .usager_input{
@@ -81,7 +109,7 @@ h1{
     margin: 0% auto;
     text-align: center;
     font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
-    color: rgb(6,68,6);
+    color: rgb(255,255,255);;
 }
 
 .button_div{

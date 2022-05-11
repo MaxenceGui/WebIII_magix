@@ -13,8 +13,7 @@
         <button onClick='allerHisto()'>historique</button>
         <button>Regarder une partie</button>
         <button>Deck</button>
-        <button>Quitter</button>
-        <h6><a href="?logout=true">Déconnexion</a></h6>
+        <button><a href="?logout=true">Quitter</a></button>
     </div>
     <div class ="chatBox">
         <h1> Vous êtes connectés</h1>

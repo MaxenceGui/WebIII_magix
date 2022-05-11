@@ -7,7 +7,9 @@
 ?>
 
 <div id="zoneAccueil">
-<div class="character"></div>
+    <div class="chat"></div>
+    <div class="arcade"></div>
+    <div class="character"></div>
     <div id="accueil">
         <h1> Connexion </h1>
         <form class="formulaire" action="login.php" method="post">
@@ -31,4 +33,4 @@
         </form>
     </div>
 </div>
-<div class="arcade"></div>
+
