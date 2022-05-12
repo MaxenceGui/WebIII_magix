@@ -12,12 +12,26 @@ window.addEventListener("load",() =>{
     }
 
     if (lieu == "http://localhost/WebIII_magix/login.php"){
-        if (document.querySelector("#username").value != null){
-            nomJoueur = document.querySelector("#username").value;
-            sessionStorage.setItem("username", nomJoueur);
+        document.querySelector("#username").onclick = () =>{
+            // if (document.querySelector("#username").value != null){
+            //     nomJoueur = document.querySelector("#username").value;
+            //     console.log(nomJoueur)
+            //     localStorage.setItem("username", nomJoueur);
+            // }
         }
     }
+    nomJoueur = sessionStorage.username;
+    console.log(nomJoueur);
+    console.log(localStorage.getItem("username"));
 })
+
+const getUsername = () =>{
+    if (document.querySelector("#username").value != null){
+        nomJoueur = document.querySelector("#username").value;
+        console.log(nomJoueur)
+        localStorage.setItem("username", nomJoueur);
+    }
+}
 
 const applyStyles = iframe => {
     // Les valeurs sont celles données en exemple dans le document magic, il faudra les styliser

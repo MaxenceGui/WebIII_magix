@@ -27,7 +27,7 @@
             </div>
 
             <div class="button_div">
-                <button type="submit">Connexion</button>
+                <button type="submit" onClick="getUsername">Connexion</button>
             </div>
         </form>
     </div>

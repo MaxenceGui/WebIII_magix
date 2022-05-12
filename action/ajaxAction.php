@@ -43,7 +43,7 @@
                     ResultDAO::addResult($joueur, $opposant, $gagnant);
             }
             else{
-                if(!($_POST["vider"])){
+                if(!empty($_POST["vider"])){
                     ResultDAO::deleteResult();
                 }
                 $result = CommonAction::callAPI("games/state", $data);

@@ -17,7 +17,7 @@
              return $rows;
         }
 
-        public static function addResult ($joueur, $opposant, $date, $gagnant){
+        public static function addResult ($joueur, $opposant, $gagnant){
             $connection = Connection::getConnection();
 
             $statement = $connection->prepare("INSERT INTO resultat (joueur, opposant, gagnant) VALUES(?,?,?)");
