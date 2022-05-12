@@ -16,24 +16,22 @@ window.addEventListener("load",() =>{
             nomJoueur = document.querySelector("#username").value;
             sessionStorage.setItem("username", nomJoueur);
         }
-        //mouvementCharacter();
     }
-    tick();
 })
 
 const applyStyles = iframe => {
     // Les valeurs sont celles données en exemple dans le document magic, il faudra les styliser
     let styles = {
-        fontColor : "#333",
-        backgroundColor : "rgba(255, 192, 203, 0.8)", 
+        fontColor : "white",
+        backgroundColor : "rgba(6, 68, 6, 0.8)", 
         fontGoogleName : "Sofia", 
         fontSize : "20px", 
         hideIcons : true, //(or false),
-        inputBackgroundColor : "lightblue", 
+        inputBackgroundColor : "rgba(240,240,240, 0.5)", 
         inputFontColor : "black", 
-        height : "400px", 
-        memberListFontColor : "#ff00dd", 
-        memberListBackgroundColor : "pink"
+        height : "100vh", 
+        memberListFontColor : "white", 
+        memberListBackgroundColor : "green",
     }
 
     setTimeout(() => { 
@@ -292,16 +290,4 @@ const gameState = () =>{
         }     
         setTimeout(gameState, 1000); // en plaçant le setTimeout ici on évite de faire des appels en recevant le résultat
     })
-}
-
-const mouvementCharacter = () =>{
-    let speed = 5;
-    let x = 0;
-    x += speed;
-    document.querySelector(".character").style.left = x + "px";
-}
-
-const tick = () =>{
-    mouvementCharacter();
-    window.requestAnimationFrame(tick);
 }

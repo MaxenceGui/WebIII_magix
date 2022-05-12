@@ -8,7 +8,6 @@
 
 <div id="zoneAccueil">
     <div class="chat"></div>
-    <div class="arcade"></div>
     <div class="character"></div>
     <div id="accueil">
         <h1> Connexion </h1>
