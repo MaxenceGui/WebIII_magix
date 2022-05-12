@@ -18,13 +18,13 @@
                     <?= $row["opposant"] ?>
                 </div>
                 <div>
-                    <?= $row["journée"] ?>
+                    <?= $row["journee"] ?>
                 </div>
                 <div>
                     <?= $row["gagnant"] ?>
                 </div>
             </div>
-            <?php
+    <?php
         }
     ?>
 </div>

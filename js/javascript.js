@@ -8,30 +8,28 @@ window.addEventListener("load",() =>{
     let lieu = location.href
     if (lieu == "http://localhost/WebIII_magix/game.php"){
         setTimeout(gameState, 1000); // Appel initial (attendre 1 seconde)
-        nomJoueur = sessionStorage.username;
+        nomJoueur = localStorage.username;
+        console.log(nomJoueur)
     }
 
     if (lieu == "http://localhost/WebIII_magix/login.php"){
-        document.querySelector("#username").onclick = () =>{
-            // if (document.querySelector("#username").value != null){
-            //     nomJoueur = document.querySelector("#username").value;
-            //     console.log(nomJoueur)
-            //     localStorage.setItem("username", nomJoueur);
-            // }
+        document.querySelector(".button_div").onclick = () =>{
+            if (document.querySelector("#username").value != null){
+                nomJoueur = document.querySelector("#username").value;
+                localStorage.setItem("username", nomJoueur);
+            }
         }
     }
-    nomJoueur = sessionStorage.username;
-    console.log(nomJoueur);
-    console.log(localStorage.getItem("username"));
 })
 
-const getUsername = () =>{
-    if (document.querySelector("#username").value != null){
-        nomJoueur = document.querySelector("#username").value;
-        console.log(nomJoueur)
-        localStorage.setItem("username", nomJoueur);
-    }
-}
+// const getUsername = () =>{
+//     if (document.querySelector("#username").value != null){
+//         console.log("jello");
+//         nomJoueur = document.querySelector("#username").value;
+//         console.log(document.querySelector("#username").value);
+//         localStorage.setItem("username", nomJoueur);
+//     }
+// }
 
 const applyStyles = iframe => {
     // Les valeurs sont celles données en exemple dans le document magic, il faudra les styliser
