@@ -265,15 +265,6 @@ a{
     align-items: center;
 }
 
-.michantCarte{
-    background:rgba(255, 105, 180);
-    color: black;
-    display : flex;
-    flex-direction: row;
-    height: 50%;
-    width: 30%;
-}
-
 /* Joueur*/
 .joueurDiv{
     color: red;
@@ -309,35 +300,67 @@ a{
     flex-direction: row;
     align-items: center;
 }
-.joueurCarte{
+
+/*Formation des cartes*/
+.carteFrame{
     border: 2px solid white;
     background-color: blueviolet;
     position:relative;
     color: white;
     display : flex;
+    flex-direction: column;
+    height: 180px;
+    width: 150px;
+    text-align: center;
+}
+
+.carteInfo{
+    display : flex;
     flex-direction: row;
-    height: 50%;
-    width: 30%;
+    background-color: rgb(46, 80, 46);
+    justify-content: space-between;
+    height: 20%;
 }
 .carteInfoVie{
-    background-color: white;
+    background-image: url("../img/heart.gif");
+    background-size:contain;
+    background-position: center;
+    background-repeat: no-repeat;
     width: 30%;
-    height: 50%;
-    color: red;
+    padding-top: 5%;
+    text-align:center;
+    color: white;
 }
 
 .carteInfoCout{
-    background-color: white;
+    background-image: url("../img/Sous.png");
+    background-size:contain;
+    background-position: center;
+    background-repeat: no-repeat;
     width: 30%;
-    height: 50%;
-    color: blue;
+    padding-top: 5%;
+    color: white;
+    text-align: center;
 }
 
 .carteInfoAtk{
-    background-color: white;
+    background-image: url("../img/sworrd.png");
+    background-size:contain;
+    background-position: center;
+    background-repeat: no-repeat;;
     width: 30%;
-    height: 50%;
-    color: red;
+    padding-top: 5%;
+    color: white;
+    text-align: center;
+}
+
+.carteImg{
+    width: 128px;
+    height: 128px;
+    background-image: url("../img/carte/10/Donkey\ Kong!.gif");
+    background-size:contain;
+    background-position: center;
+    background-repeat: no-repeat;
 }
 
 /*Pour les habilités*/

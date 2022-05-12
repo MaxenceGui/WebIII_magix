@@ -28,6 +28,17 @@
         }
     ?>
 </div>
+
+<div class="carteFrame">
+    Donkey Kong
+    <div class="carteInfo">
+        <div class="carteInfoVie">3</div>
+        <div class="carteInfoAtk">3</div>
+        <div class="carteInfoCout">2</div>
+    </div>
+    <div class="carteImg"></div>
+    <div class="carteInfoHab">info ici!</div>
+</div>
 <button onClick="supprimerBD()">supprimer historique de partie</button>
 <button onClick="revenirLobby()">Lobby</button>
    

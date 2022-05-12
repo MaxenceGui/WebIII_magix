@@ -9,10 +9,10 @@ window.addEventListener("load",() =>{
     if (lieu == "http://localhost/WebIII_magix/game.php"){
         setTimeout(gameState, 1000); // Appel initial (attendre 1 seconde)
         nomJoueur = localStorage.username;
-        console.log(nomJoueur)
     }
 
     if (lieu == "http://localhost/WebIII_magix/login.php"){
+        document.querySelector("#username").innerHTML = localStorage.username;
         document.querySelector(".button_div").onclick = () =>{
             if (document.querySelector("#username").value != null){
                 nomJoueur = document.querySelector("#username").value;
@@ -21,15 +21,6 @@ window.addEventListener("load",() =>{
         }
     }
 })
-
-// const getUsername = () =>{
-//     if (document.querySelector("#username").value != null){
-//         console.log("jello");
-//         nomJoueur = document.querySelector("#username").value;
-//         console.log(document.querySelector("#username").value);
-//         localStorage.setItem("username", nomJoueur);
-//     }
-// }
 
 const applyStyles = iframe => {
     // Les valeurs sont celles données en exemple dans le document magic, il faudra les styliser
@@ -171,7 +162,7 @@ const gameState = () =>{
             for (const carte in result.opponent.board) {
                 // frame de la carte             
                 let carteStruct = document.createElement("div");
-                carteStruct.classList.add("michantCarte");
+                carteStruct.classList.add("carteFrame");
 
                 carteStruct.onclick = () => {
                     console.log("ATTACK", carteJAtk, result.opponent.board[carte].uid);
@@ -215,7 +206,7 @@ const gameState = () =>{
                 // frame de la carte
                 console.log(result.board[carte].uid)             
                 let carteStruct = document.createElement("div");
-                carteStruct.classList.add("joueurCarte");
+                carteStruct.classList.add("carteFrame");
 
                 carteStruct.onclick = () => {
                     carteStruct.style.borderColor = "red";
@@ -256,37 +247,47 @@ const gameState = () =>{
               
                 // frame de la carte             
                 let carteStruct = document.createElement("div");
-                carteStruct.classList.add("joueurCarte");
+                carteStruct.classList.add("carteFrame");
 
                 carteStruct.onclick = () => {
                     carteStruct.remove();
                     console.log(result.hand[carte].uid)
                     jouerCoup("PLAY", result.hand[carte].uid);
                 };
+
+                // boite contenant les infos de la carte
+                let carteStats = document.createElement("div");
+                carteStats.classList.add("carteInfo");
+                carteStruct.append(carteStats);
                 
                 // boite pour la vie
                 let carteVie = document.createElement("div");
                 carteVie.classList.add("carteInfoVie");
-                carteStruct.append(carteVie);
-                carteVie.innerHTML = " HP : " + result.hand[carte].hp;
+                carteStats.append(carteVie);
+                carteVie.innerHTML = result.hand[carte].hp;
 
 
-                // // boite pour le coût
+                // boite pour le coût
                 carteCout = document.createElement("div");
                 carteCout.classList.add("carteInfoCout");
-                carteStruct.append(carteCout);
-                carteCout.innerHTML = " Coût : "  + result.hand[carte].cost;
+                carteStats.append(carteCout);
+                carteCout.innerHTML = result.hand[carte].cost;
 
-                // // boite pour l'attaque
+                // boite pour l'attaque
                 carteAtk = document.createElement("div");
                 carteAtk.classList.add("carteInfoAtk");
-                carteAtk.innerHTML = " ATK : " + result.hand[carte].atk;
-                carteStruct.append(carteAtk);
+                carteStats.append(carteAtk);
+                carteAtk.innerHTML = result.hand[carte].atk;
 
-                // // Description
+                // boite pour l'image
+                carteImg = document.createElement("div");
+                carteImg.classList.add("carteImg");
+                carteStruct.append(carteImg);
+
+                // Description
                 carteInfo = document.createElement("div");
                 carteInfo.classList.add("carteInfoHab");
-                carteInfo.innerHTML = " Description \n" + result.hand[carte].mechanics;
+                carteInfo.innerHTML = result.hand[carte].mechanics;
                 carteStruct.append(carteInfo);
 
                 document.querySelector(".carteEnMain").append(carteStruct);
