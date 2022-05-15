@@ -6,6 +6,8 @@
 :root{
     --largeurImg: 100%;
     --tailleImg: 50%;
+    --tailleAvatar: 100%;
+    --largeurAvatar: 100%;
 }
 
 button{
@@ -219,6 +221,14 @@ a{
 }
 
 /* Michant*/
+
+#portraitMichant{
+    background-color: aqua;
+    height: 32px;
+    width: 32px;
+    display: block;
+}
+
 .michantDiv{
     margin: auto;
     background-color: rgba(128, 128, 128, 0.2);
@@ -239,12 +249,7 @@ a{
     display: flex;
     flex-direction: column;
 }
-.portraitMichant{
-    background-color: rgba(0, 255, 255);
-    height: 25px;
-    width: 25px;
-    display: block;
-}
+
 .michantNbCarte{
     margin: 2%;
     color: black;
@@ -273,31 +278,46 @@ a{
 .joueurDiv{
     color: white;
     width: 15%;
+    height:100%;
 }
 .infoJoueur{
     color: white;
+    align-items: center;
+    height:100%;
+    width: 100%;
 }
 .joueurClassHero{
     text-align: center;
     font-size: xx-large;
 }
 .joueurHP{
+    height:15%;
+    width: 20%;
     background-image: url("../img/heart.gif");
     background-size:contain;
     background-position: center;
     background-repeat: no-repeat;
     text-align: end;
-    padding-right: 20%;
     color: white;
+    margin: 0 auto;
 }
 .joueurMP{
+    height:15%;
+    width: 20%;
     background-image: url("../img/Sous.png");
     background-size:contain;
     background-position: center;
     background-repeat: no-repeat;
     text-align: end;
-    padding-right: 20%;
     color: white;
+    margin: 0 auto;
+}
+
+#portraitJoueur{
+    width: 40%;
+    height: 40%;
+    display: block;
+    margin: 0 auto;
 }
 .joueurBoard{
     width: 100%;
@@ -685,10 +705,78 @@ a{
 /*Niveau 10*/
 
 .carteImg-32{
-    width: 128px;
-    height: 60%;
+    width: var(--largeurImg);
+    height: var(--tailleImg);
     background-image: url("../img/carte/10/Donkey\ Kong!.gif");
     background-size:contain;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+
+/*Portrait Héros*/
+.portraitDruid{
+    background-image: url("../img/avatar/druid.png");
+    background-size:cover;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+
+.portraitWarrior{
+    background-image: url("../img/avatar/Warrior.png");
+    background-size:cover;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+
+.portraitWarlock{
+    background-image: url("../img/avatar/warlock.png");
+    background-size:cover;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+
+.portraitPriest{
+    background-image: url("../img/avatar/Priest.png");
+    background-size:cover;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+
+.portraitHunter{
+    background-image: url("../img/avatar/hunter.png");
+    background-size:cover;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+
+.portraitDemonHunter{
+    background-image: url("../img/avatar/DemonHunter.png");
+    background-size:cover;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+
+.portraitRogue{
+    background-image: url("../img/avatar/Rogue.png");
+    background-size:cover;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+.portraitPaladin{
+    background-image: url("../img/avatar/Paladin.png");
+    background-size:cover;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+.portraitShaman{
+    background-image: url("../img/avatar/Shaman.png");
+    background-size:cover;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+.portraitMage{
+    background-image: url("../img/avatar/Mage.png");
+    background-size:cover;
     background-position: center;
     background-repeat: no-repeat;
 }
@@ -706,17 +794,21 @@ a{
     width: 100%;
     display:flex;
     flex-direction: column;
+    justify-content: center;
     align-items: center;
 }
 .remaingCardsCount{
-    color: red;
+    color: white;
+    text-align: center;
+    font-size: xx-large;
 }
 .remaingTurnTime{
-    color: red;
+    color: white;
+    text-align: center;
+    font-size: xx-large;
 }
 .talent{
-    color: red;
-}
-.tourJoueur{
-    color: red;
+    color: white;
+    text-align: center;
+    font-size: xx-large;
 }

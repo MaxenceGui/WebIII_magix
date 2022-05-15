@@ -3,6 +3,8 @@ let nomOpposant = "michant";
 let nomJoueur = "moi";
 let infoEntree = false;
 let click = false;
+let tableauClasse = ["Warrior", "Priest", "Hunter", "Warlock", "DemonHunter", "Rogue", "Paladin", "Shaman", "Druid", "Mage"];
+
 
 window.addEventListener("load",() =>{
 
@@ -130,7 +132,7 @@ const gameState = () =>{
         
         if (typeof result !== "object"){
             if (result == "LAST_GAME_LOST" && !infoEntree){
-                document.querySelector(".texteBienvenu").innerHTML = "défaite";
+                document.querySelector(".texteBienvenu").innerHTML = "Défaite";
                 ecrireBD(nomJoueur,nomOpposant, nomOpposant);
                 infoEntree = true;
             }
@@ -148,9 +150,11 @@ const gameState = () =>{
             
             // information du méchant
             document.querySelector(".michantClassHero").innerHTML = "classe du michant : " + result.opponent.heroClass;
-            document.querySelector(".portraitMichant").onclick = () => {
+            document.querySelector("#portraitMichant").onclick = () => {
                 jouerCoup("ATTACK", carteJAtk, 0); // attaqué héros ennemi
             }
+            let classe = associerAvatar(result.opponent.heroClass);
+            document.querySelector("#portraitMichant").classList.add(classe)
             document.querySelector(".michantNbCarte").innerHTML = "nb Carte du michant : " + result.opponent.handSize;
             document.querySelector(".michantHP").innerHTML = "HP du michant : " + result.opponent.hp;
             document.querySelector(".michantMP").innerHTML = "MP du michant : " + result.opponent.mp;
@@ -319,8 +323,10 @@ const gameState = () =>{
             
             // info sur la partie
             document.querySelector(".remaingCardsCount").innerHTML = "Carte du joueur : " + result.remainingCardsCount;
-            document.querySelector(".remaingTurnTime").innerHTML = "Temps du tour : " + result.remainingTurnTime;
+            document.querySelector(".remaingTurnTime").innerHTML = result.remainingTurnTime;
             document.querySelector(".talent").innerHTML = "Talent : " + result.talent;
+            classe = associerAvatar(result.heroClass);
+            document.querySelector("#portraitJoueur").classList.add(classe)
     
             // tour du joueur?
             if( result.yourTurn){
@@ -483,6 +489,15 @@ const assignerCarte = (carte) =>{
     }
 }
 
+const associerAvatar = (classe) =>{
+
+    for (const i in tableauClasse) {
+        if (classe == tableauClasse[i]) {
+            return "portrait" + classe;
+        }
+    }
+}
+
 const afficherDeck = (key) =>{
     console.log("lol")
     console.log(key)
@@ -500,7 +515,4 @@ const afficherDeck = (key) =>{
         document.querySelector("#deck").remove();
         click = false;
     }
-
-    
-    
 }

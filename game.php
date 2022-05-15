@@ -17,7 +17,7 @@
         <div class="michantDiv">
             <h1 class="texteBienvenu">Game On</h1>
             <div class="michantClassHero"></div>
-            <div class="portraitMichant"></div>
+            <div id="portraitMichant"></div>
             <div class="infoMichant">
                 <div class="michantNbCarte"></div>
                 <div class="michantHP"></div>
@@ -45,7 +45,7 @@
                 <div class="joueurClassHero"></div>
                 <div class="joueurHP"></div>
                 <div class="joueurMP"></div>
-                <div class="tourJoueur"></div>
+                <div id="portraitJoueur"></div>
             </div>
         </div>
 
