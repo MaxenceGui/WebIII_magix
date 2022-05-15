@@ -3,6 +3,11 @@
     padding:0;
 }
 
+:root{
+    --largeurImg: 100%;
+    --tailleImg: 50%;
+}
+
 button{
     color: rgb(255, 255, 255);
     background-color: rgb(6, 68, 6);
@@ -218,7 +223,7 @@ a{
     margin: auto;
     background-color: rgba(128, 128, 128, 0.2);
     color: black;
-    width: 50%;
+    width: 75%;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -261,25 +266,38 @@ a{
     width: 100%;
     height: 25%;
     display: flex;
-    flex-direction: row;
-    align-items: center;
+    justify-content: center;
 }
 
 /* Joueur*/
 .joueurDiv{
-    color: red;
+    color: white;
+    width: 15%;
 }
 .infoJoueur{
-    color: red;
+    color: white;
 }
 .joueurClassHero{
-    color: red;
+    text-align: center;
+    font-size: xx-large;
 }
 .joueurHP{
-    color: red;
+    background-image: url("../img/heart.gif");
+    background-size:contain;
+    background-position: center;
+    background-repeat: no-repeat;
+    text-align: end;
+    padding-right: 20%;
+    color: white;
 }
 .joueurMP{
-    color: red;
+    background-image: url("../img/Sous.png");
+    background-size:contain;
+    background-position: center;
+    background-repeat: no-repeat;
+    text-align: end;
+    padding-right: 20%;
+    color: white;
 }
 .joueurBoard{
     width: 100%;
@@ -287,38 +305,37 @@ a{
     background-color: rgb(238, 130, 238, 0.2);
     border: solid 5px rgb(78, 14, 78);
     display : flex;
-    flex-direction: row;
-    align-items: center;
+    justify-content: center;
 }
 
 .carteEnMain{
     background-color: rgba(95, 158, 160, 0.2);
     width: 100%;
-    height: 80%;
+    height: 100%;
     border: solid 5px rgb(6, 46, 121);
     display: flex;
-    flex-direction: row;
-    align-items: center;
+    justify-content: center;
 }
 
 /*Formation des cartes*/
 .carteFrame{
-    border: 2px solid white;
-    background-color: blueviolet;
+    background-color: rgba(83, 148, 18, 0.5);
+    border: 1px green solid;
     position:relative;
     color: white;
     display : flex;
     flex-direction: column;
-    height: 180px;
+    height: 100%;
     width: 150px;
     text-align: center;
+    margin: 0% 1%;
 }
 
 .carteInfo{
     display : flex;
     flex-direction: row;
     background-color: rgb(46, 80, 46);
-    justify-content: space-between;
+    justify-content: space-evenly;
     height: 20%;
 }
 .carteInfoVie{
@@ -327,8 +344,7 @@ a{
     background-position: center;
     background-repeat: no-repeat;
     width: 30%;
-    padding-top: 5%;
-    text-align:center;
+    padding: 10%;
     color: white;
 }
 
@@ -338,7 +354,7 @@ a{
     background-position: center;
     background-repeat: no-repeat;
     width: 30%;
-    padding-top: 5%;
+    padding-top: 10%;
     color: white;
     text-align: center;
 }
@@ -349,34 +365,348 @@ a{
     background-position: center;
     background-repeat: no-repeat;;
     width: 30%;
-    padding-top: 5%;
+    padding-top: 10%;
     color: white;
     text-align: center;
 }
 
-.carteImg{
+/*Pour les habilités*/
+.carteInfoHab{
+    background-color:rgba(83, 148, 18, 0.8);
+    color: black;
+    height: 30%;
+    border-top: 1px solid green;
+}
+
+/*Les cartes*/
+
+/*Niveau 1*/
+.carteImg-0{
+    width: var(--largeurImg);
+    height: var(--tailleImg);
+    background-image: url("../img/carte/1/Barril.gif");
+    background-size:contain;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+
+.carteImg-1{
+    width: var(--largeurImg);
+    height: var(--tailleImg);
+    background-image: url("../img/carte/1/insecte.png");
+    background-size:contain;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+
+.carteImg-2{
+    width: var(--largeurImg);
+    height: var(--tailleImg);
+    background-image: url("../img/carte/1/Slime.gif");
+    background-size:contain;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+
+/*Niveau 2*/
+
+.carteImg-3{
+    width: var(--largeurImg);
+    height: var(--tailleImg);
+    background-image: url("../img/carte/2/Baton.gif");
+    background-size:contain;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+
+.carteImg-4{
+    width: var(--largeurImg);
+    height: var(--tailleImg);
+    background-image: url("../img/carte/2/Coffre.gif");
+    background-size:contain;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+
+.carteImg-5{
+    width: var(--largeurImg);
+    height: var(--tailleImg);
+    background-image: url("../img/carte/2/Happy_three.gif");
+    background-size:contain;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+
+.carteImg-6{
+    width: var(--largeurImg);
+    height: var(--tailleImg);
+    background-image: url("../img/carte/2/pingouin.png");
+    background-size:contain;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+
+/*Niveau 3*/
+.carteImg-7{
+    width: var(--largeurImg);
+    height: var(--tailleImg);
+    background-image: url("../img/carte/3/alambic.gif");
+    background-size:contain;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+
+.carteImg-8{
+    width: var(--largeurImg);
+    height: var(--tailleImg);
+    background-image: url("../img/carte/3/boxing_ladybug.png");
+    background-size:contain;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+
+.carteImg-9{
+    width: var(--largeurImg);
+    height: var(--tailleImg);
+    background-image: url("../img/carte/3/death.png");
+    background-size:contain;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+
+.carteImg-10{
+    width: var(--largeurImg);
+    height: var(--tailleImg);
+    background-image: url("../img/carte/3/house.gif");
+    background-size:contain;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+
+.carteImg-11{
+    width: var(--largeurImg);
+    height: var(--tailleImg);
+    background-image: url("../img/carte/3/packman_ghost_00.gif");
+    background-size:contain;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+
+.carteImg-12{
+    width: var(--largeurImg);
+    height: var(--tailleImg);
+    background-image: url("../img/carte/3/packman_ghost_01.gif");
+    background-size:contain;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+
+.carteImg-13{
+    width: var(--largeurImg);
+    height: var(--tailleImg);
+    background-image: url("../img/carte/3/randomiser.gif");
+    background-size:contain;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+
+/*Niveau 4*/
+
+.carteImg-14{
+    width: var(--largeurImg);
+    height: var(--tailleImg);
+    background-image: url("../img/carte/4/harry_potter.png");
+    background-size:contain;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+
+.carteImg-15{
+    width: var(--largeurImg);
+    height: var(--tailleImg);
+    background-image: url("../img/carte/4/murder.png");
+    background-size:contain;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+
+.carteImg-16{
+    width: var(--largeurImg);
+    height: var(--tailleImg);
+    background-image: url("../img/carte/4/pirates.png");
+    background-size:contain;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+
+.carteImg-17{
+    width: var(--largeurImg);
+    height: var(--tailleImg);
+    background-image: url("../img/carte/4/soldier.png");
+    background-size:contain;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+
+/*Niveau 5*/
+
+.carteImg-18{
+    width: var(--largeurImg);
+    height: var(--tailleImg);
+    background-image: url("../img/carte/5/buffle.gif");
+    background-size:contain;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+
+.carteImg-19{
+    width: var(--largeurImg);
+    height: var(--tailleImg);
+    background-image: url("../img/carte/5/ninja.gif");
+    background-size:contain;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+
+.carteImg-20{
+    width: var(--largeurImg);
+    height: var(--tailleImg);
+    background-image: url("../img/carte/5/Spider.gif");
+    background-size:contain;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+
+.carteImg-21{
+    width: var(--largeurImg);
+    height: var(--tailleImg);
+    background-image: url("../img/carte/5/Sylvain.gif");
+    background-size:contain;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+
+/*Niveau 6*/
+
+.carteImg-22{
+    width: var(--largeurImg);
+    height: var(--tailleImg);
+    background-image: url("../img/carte/6/gaya.gif");
+    background-size:contain;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+
+.carteImg-23{
+    width: var(--largeurImg);
+    height: var(--tailleImg);
+    background-image: url("../img/carte/6/Police.gif");
+    background-size:contain;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+
+.carteImg-24{
+    width: var(--largeurImg);
+    height: var(--tailleImg);
+    background-image: url("../img/carte/6/Programmeur.gif");
+    background-size:contain;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+
+.carteImg-25{
+    width: var(--largeurImg);
+    height: var(--tailleImg);
+    background-image: url("../img/carte/6/voleur.gif");
+    background-size:contain;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+
+/*Niveau 7*/
+
+.carteImg-26{
+    width: var(--largeurImg);
+    height: var(--tailleImg);
+    background-image: url("../img/carte/7/lion.gif");
+    background-size:contain;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+
+.carteImg-27{
+    width: var(--largeurImg);
+    height: var(--tailleImg);
+    background-image: url("../img/carte/7/Sorcerer.png");
+    background-size:contain;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+
+.carteImg-28{
+    width: var(--largeurImg);
+    height: var(--tailleImg);
+    background-image: url("../img/carte/7/Vulture.png");
+    background-size:contain;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+
+/*Niveau 8*/
+.carteImg-29{
+    width: var(--largeurImg);
+    height: var(--tailleImg);
+    background-image: url("../img/carte/8/dame_coeur.gif");
+    background-size:contain;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+
+.carteImg-30{
+    width: var(--largeurImg);
+    height: var(--tailleImg);
+    background-image: url("../img/carte/8/turret.png");
+    background-size:contain;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+
+/*Niveau 9*/
+
+.carteImg-31{
+    width: var(--largeurImg);
+    height: var(--tailleImg);
+    background-image: url("../img/carte/9/packMan.gif");
+    background-size:contain;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+/*Niveau 10*/
+
+.carteImg-32{
     width: 128px;
-    height: 128px;
+    height: 60%;
     background-image: url("../img/carte/10/Donkey\ Kong!.gif");
     background-size:contain;
     background-position: center;
     background-repeat: no-repeat;
 }
 
-/*Pour les habilités*/
-.carteInfoHab{
-    background-color:lightblue;
-    color: black;
-    width: auto;
-}
-
 /* Partie*/
 .partieDiv{
+    width: 10%;
     background-color: rgba(127, 255, 0, 0.2);
     color: red;
+    display: flex;
+    justify-content: center;
 }
 .infoPartie{
-    color: red;
+    height: 50%;
+    width: 100%;
+    display:flex;
+    flex-direction: column;
+    align-items: center;
 }
 .remaingCardsCount{
     color: red;

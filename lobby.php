@@ -11,12 +11,12 @@
     <div class="renard-2"></div>
     <div class="renard-3"></div>
     <div class="textBienvenue">
-        <h1 class="lobbyTitre">Bienvenue challenger!</h1>
+        <h1 class="lobbyTitre"> Bienvenue challenger!</h1>
     </div>
     
     <iframe class="chatBox" onload="applyStyles(this)"
 
-        src=<?= $data["chat"] ?>> 
+        src=<?= $data["chat"][0] ?>> 
 
     </iframe>
     
@@ -25,7 +25,7 @@
         <button onClick='jouer("PVP")'>Jouez (PVP)</button>
         <button onClick='allerHisto()'>historique</button>
         <button>Regarder une partie</button>
-        <button>Deck</button>
+        <button onClick="afficherDeck('<?= $data["chat"][1]?>')">Deck</button>
         <button><a href="?logout=true">Quitter</a></button>
     </div>
 </div>

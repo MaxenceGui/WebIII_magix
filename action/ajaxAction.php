@@ -36,19 +36,23 @@
                     $result  = CommonAction::callAPI("games/auto-match", $data);
                 }
             }
-            elseif(!empty($_POST["gagnant"])){
-                    $joueur = $_POST["joueur"];
-                    $opposant = $_POST["opposant"];
-                    $gagnant = $_POST["gagnant"];
-                    ResultDAO::addResult($joueur, $opposant, $gagnant);
+        elseif(!empty($_POST["gagnant"])){
+                $joueur = $_POST["joueur"];
+                $opposant = $_POST["opposant"];
+                $gagnant = $_POST["gagnant"];
+                ResultDAO::addResult($joueur, $opposant, $gagnant);
+        }
+        else{
+            if(!empty($_POST["vider"])){
+                ResultDAO::deleteResult();
+            }
+            if(!empty($_POSt["deck"])){
+                $result = $data["key"];
             }
             else{
-                if(!empty($_POST["vider"])){
-                    ResultDAO::deleteResult();
-                }
                 $result = CommonAction::callAPI("games/state", $data);
             }
-
+        }
 			return compact("result");
 		}
 	}

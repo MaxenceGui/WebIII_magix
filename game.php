@@ -28,8 +28,8 @@
 
         <div class="partieDiv">
             <div class="infoPartie">
-                <div class="remaingTurnTime"></div>
                 <button onClick='jouerCoup("END_TURN")'>Fin du tour</button>
+                <div class="remaingTurnTime"></div>
             </div>
         </div>
     </div>
