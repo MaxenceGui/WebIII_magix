@@ -6,6 +6,7 @@
 :root{
     --largeurImg: 100%;
     --tailleImg: 50%;
+    --marginImg: 1%;
     --tailleAvatar: 100%;
     --largeurAvatar: 100%;
 }
@@ -195,7 +196,7 @@ a{
     position: fixed;
 }
 #zoneTop{
-    height: 25%;
+    height: 20%;
     width: 100%;
     display: flex;
     flex-direction: row;
@@ -283,6 +284,7 @@ a{
     height: 25%;
     display: flex;
     justify-content: center;
+    margin-top: 0.5%
 }
 
 /* Joueur*/
@@ -338,6 +340,7 @@ a{
 .joueurBoard{
     width: 100%;
     height: 25%;
+    margin: 0.5% 0;
     background-color: rgb(0, 0, 0, 0.2);
     display : flex;
     justify-content: center;
@@ -361,7 +364,7 @@ a{
     height: 100%;
     width: 150px;
     text-align: center;
-    margin: 0% 1%;
+    margin: 0 1%;
 }
 
 .carteInfo{
