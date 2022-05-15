@@ -36,7 +36,6 @@ a{
 #zoneAccueil{
     height: 100vh;
     width: 100%;
-    background-color: black;
     background-image: url("../img/background.gif");
     background-attachment: fixed;
     background-size: cover;
@@ -190,13 +189,12 @@ a{
 #zoneJeu{
     height: 100vh;
     width: 100%;
-    background-image: url("../img/jeuBackground.gif");
+    background-image: url("../img/background_forest.gif");
     background-attachment: fixed;
     background-size: cover;
     position: fixed;
 }
 #zoneTop{
-    background-color: rgba(74, 0, 128, 0.2);
     height: 25%;
     width: 100%;
     display: flex;
@@ -205,7 +203,6 @@ a{
 }
 
 #zoneJoueur{
-    background-color: rgba(75, 0, 130, 0.2);
     height: 25%;
     width: 100%;
     display: flex;
@@ -214,57 +211,71 @@ a{
 
 /* Classe de game.php*/
 .texteBienvenu{
-    background-color: rgba(255, 0, 0, 0.2);
+    height: 20%;
     text-align: center;
-    margin: auto;
-    width: 50%;
+    color: red;
+    margin-bottom: 1%;
 }
 
 /* Michant*/
 
 #portraitMichant{
-    background-color: aqua;
-    height: 32px;
-    width: 32px;
+    width: 50%;
+    height: 90%;
     display: block;
+    margin: 0 auto;
+    background-color: rgba(0, 0, 0, 0.8);
 }
 
 .michantDiv{
     margin: auto;
-    background-color: rgba(128, 128, 128, 0.2);
+    background-color: rgba(128, 128, 128, 0.5);
     color: black;
     width: 75%;
+    height: 100%;
     display: flex;
     flex-direction: column;
     align-items: center;
 }
 .infoMichant{
-    color: black;
+    color: white;
     display: flex;
     flex-direction: row;
     justify-content: space-evenly;
+    height: 80%;
+    width: 50%;
+   
 }
-.michantClassHero{
-    color: black;
+
+.boiteCarteMichant{
+    height: 100%;
+    width: 80%;
     display: flex;
-    flex-direction: column;
+    flex-direction: row;
 }
 
 .michantNbCarte{
-    margin: 2%;
-    color: black;
+    background-image: url("../img/carteDerrière.png");
+    background-size:contain;
+    background-position: center;
+    background-repeat: no-repeat;
+    height: 100%;
+    width: 100%;
+    margin: 1%;
 }
+
+.michantClassHero{
+    margin: 2%;
+}
+
 .michantHP{
     margin: 2%;
-    color: black;
 }
 .michantMP{
     margin: 2%;
-    color: black;
 }
 .michantLostCount{
     margin: 2%;
-    color: black;
 }
 .michantBoard{
     background-color: rgba(0, 0, 0, 0.2);
@@ -279,6 +290,10 @@ a{
     color: white;
     width: 15%;
     height:100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+
 }
 .infoJoueur{
     color: white;
@@ -318,28 +333,26 @@ a{
     height: 40%;
     display: block;
     margin: 0 auto;
+    background-color: rgba(255, 255, 255, 0.8);
 }
 .joueurBoard{
     width: 100%;
     height: 25%;
-    background-color: rgb(238, 130, 238, 0.2);
-    border: solid 5px rgb(78, 14, 78);
+    background-color: rgb(0, 0, 0, 0.2);
     display : flex;
     justify-content: center;
 }
 
 .carteEnMain{
-    background-color: rgba(95, 158, 160, 0.2);
     width: 100%;
     height: 100%;
-    border: solid 5px rgb(6, 46, 121);
     display: flex;
     justify-content: center;
 }
 
 /*Formation des cartes*/
 .carteFrame{
-    background-color: rgba(83, 148, 18, 0.5);
+    background-color: rgba(255, 255, 255, 0.5);
     border: 1px green solid;
     position:relative;
     color: white;
@@ -392,7 +405,7 @@ a{
 
 /*Pour les habilités*/
 .carteInfoHab{
-    background-color:rgba(83, 148, 18, 0.8);
+    background-color:rgba(56, 105, 196, 0.8);
     color: black;
     height: 30%;
     border-top: 1px solid green;
@@ -716,67 +729,67 @@ a{
 /*Portrait Héros*/
 .portraitDruid{
     background-image: url("../img/avatar/druid.png");
-    background-size:cover;
+    background-size:contain;
     background-position: center;
     background-repeat: no-repeat;
 }
 
 .portraitWarrior{
     background-image: url("../img/avatar/Warrior.png");
-    background-size:cover;
+    background-size:contain;
     background-position: center;
     background-repeat: no-repeat;
 }
 
 .portraitWarlock{
     background-image: url("../img/avatar/warlock.png");
-    background-size:cover;
+    background-size:contain;
     background-position: center;
     background-repeat: no-repeat;
 }
 
 .portraitPriest{
     background-image: url("../img/avatar/Priest.png");
-    background-size:cover;
+    background-size:contain;
     background-position: center;
     background-repeat: no-repeat;
 }
 
 .portraitHunter{
     background-image: url("../img/avatar/hunter.png");
-    background-size:cover;
+    background-size:contain;
     background-position: center;
     background-repeat: no-repeat;
 }
 
 .portraitDemonHunter{
     background-image: url("../img/avatar/DemonHunter.png");
-    background-size:cover;
+    background-size:contain;
     background-position: center;
     background-repeat: no-repeat;
 }
 
 .portraitRogue{
     background-image: url("../img/avatar/Rogue.png");
-    background-size:cover;
+    background-size:contain;
     background-position: center;
     background-repeat: no-repeat;
 }
 .portraitPaladin{
     background-image: url("../img/avatar/Paladin.png");
-    background-size:cover;
+    background-size:contain;
     background-position: center;
     background-repeat: no-repeat;
 }
 .portraitShaman{
     background-image: url("../img/avatar/Shaman.png");
-    background-size:cover;
+    background-size:contain;
     background-position: center;
     background-repeat: no-repeat;
 }
 .portraitMage{
     background-image: url("../img/avatar/Mage.png");
-    background-size:cover;
+    background-size:contain;
     background-position: center;
     background-repeat: no-repeat;
 }
@@ -784,7 +797,6 @@ a{
 /* Partie*/
 .partieDiv{
     width: 10%;
-    background-color: rgba(127, 255, 0, 0.2);
     color: red;
     display: flex;
     justify-content: center;
@@ -798,9 +810,16 @@ a{
     align-items: center;
 }
 .remaingCardsCount{
+    background-image: url("../img/carteDerrière.png");
+    background-size:contain;
+    background-position: center;
+    background-repeat: no-repeat;
+    height: 50%;
+    width: 50%;
     color: white;
-    text-align: center;
+    text-align:center;
     font-size: xx-large;
+    margin: 0 auto;
 }
 .remaingTurnTime{
     color: white;
@@ -810,5 +829,8 @@ a{
 .talent{
     color: white;
     text-align: center;
-    font-size: xx-large;
+}
+.btnPower{
+    height: 10%;
+    margin: 0 auto;
 }

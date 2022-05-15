@@ -7,22 +7,26 @@
 ?>
 <div id="zoneJeu">
     <div id="zoneTop">
+    
         <div class="partieDiv">
             <div class="infoPartie">
                 <button onClick='jouerCoup("SURRENDER")'>Abandonner</button>
                 <button onClick='revenirLobby()'>lobby</button>
+                
             </div>
         </div>
-    
         <div class="michantDiv">
             <h1 class="texteBienvenu">Game On</h1>
-            <div class="michantClassHero"></div>
-            <div id="portraitMichant"></div>
             <div class="infoMichant">
-                <div class="michantNbCarte"></div>
-                <div class="michantHP"></div>
-                <div class="michantMP"></div>
-                <div class="michantLostCount"></div>
+                <div id="portraitMichant"></div>
+
+                <div class="infoJoueur">
+                    <div class="michantClassHero"></div>
+                    <div class="michantHP"></div>
+                    <div class="michantMP"></div>
+                    <div class="michantLostCount"></div>
+                </div>
+                <div class="boiteCarteMichant"></div>
             </div>
         </div>
 
@@ -53,8 +57,8 @@
 
         <div class="joueurDiv">
             <div class="remaingCardsCount"></div>
+            <button class="btnPower" onClick='jouerCoup("HERO_POWER")'>Pouvoir</button>
             <div class="talent"></div>
-            <button onClick='jouerCoup("HERO_POWER")'>Pouvoir</button>
         </div>
     </div>
 </div>

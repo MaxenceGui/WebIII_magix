@@ -149,20 +149,25 @@ const gameState = () =>{
             document.querySelector(".texteBienvenu").innerHTML = result.welcomeText;
             
             // information du méchant
-            document.querySelector(".michantClassHero").innerHTML = "classe du michant : " + result.opponent.heroClass;
+            document.querySelector(".michantClassHero").innerHTML = result.opponent.heroClass;
             document.querySelector("#portraitMichant").onclick = () => {
                 jouerCoup("ATTACK", carteJAtk, 0); // attaqué héros ennemi
             }
             let classe = associerAvatar(result.opponent.heroClass);
             document.querySelector("#portraitMichant").classList.add(classe)
-            document.querySelector(".michantNbCarte").innerHTML = "nb Carte du michant : " + result.opponent.handSize;
+
+            document.querySelector(".boiteCarteMichant").innerHTML="";
+            for (let index = 0; index < result.opponent.handSize; index++) {
+                let carte = document.createElement("div");
+                carte.classList.add("michantNbCarte");
+                document.querySelector(".boiteCarteMichant").append(carte);
+            }
+
             document.querySelector(".michantHP").innerHTML = "HP du michant : " + result.opponent.hp;
             document.querySelector(".michantMP").innerHTML = "MP du michant : " + result.opponent.mp;
             document.querySelector(".michantLostCount").innerHTML = "Partie perdu du michant : " + result.opponent.lossCount;
            
             // Ses cartes en jeu
-            // document.querySelector(".michantBoard").innerHTML = "Jeu du michant : " + result.opponent.board;
-            // console.log(result.opponent.board)
             document.querySelector(".michantBoard").innerHTML="";
             for (const carte in result.opponent.board) {
                 // frame de la carte             
@@ -170,7 +175,6 @@ const gameState = () =>{
                 carteStruct.classList.add("carteFrame");
 
                 carteStruct.onclick = () => {
-                    console.log("ATTACK", carteJAtk, result.opponent.board[carte].uid);
                     jouerCoup("ATTACK", carteJAtk, result.opponent.board[carte].uid);
                 };
 
@@ -219,15 +223,13 @@ const gameState = () =>{
             // Ses cartes en jeu
             document.querySelector(".joueurBoard").innerHTML = "";
             for (const carte in result.board) {
-                // frame de la carte
-                console.log(result.board[carte].uid)             
+                // frame de la carte            
                 let carteStruct = document.createElement("div");
                 carteStruct.classList.add("carteFrame");
 
                 carteStruct.onclick = () => {
                     carteStruct.style.borderColor = "red";
                     carteJAtk = result.board[carte].uid;
-                    console.log(carteJAtk);
                 };
 
                 // boite contenant les infos de la carte
@@ -278,7 +280,6 @@ const gameState = () =>{
 
                 carteStruct.onclick = () => {
                     carteStruct.remove();
-                    console.log(result.hand[carte].uid)
                     jouerCoup("PLAY", result.hand[carte].uid);
                 };
 
@@ -322,18 +323,20 @@ const gameState = () =>{
             }
             
             // info sur la partie
-            document.querySelector(".remaingCardsCount").innerHTML = "Carte du joueur : " + result.remainingCardsCount;
+            document.querySelector(".remaingCardsCount").innerHTML = result.remainingCardsCount;
             document.querySelector(".remaingTurnTime").innerHTML = result.remainingTurnTime;
-            document.querySelector(".talent").innerHTML = "Talent : " + result.talent;
+            document.querySelector(".talent").innerHTML = result.talent;
             classe = associerAvatar(result.heroClass);
             document.querySelector("#portraitJoueur").classList.add(classe)
     
             // tour du joueur?
             if( result.yourTurn){
-                document.querySelector(".joueurBoard").style.borderColor = "blue";
+                document.querySelector("#portraitJoueur").style.backgroundColor = "rgba(255, 87, 51, 0.8)";
+                document.querySelector("#portraitMichant").style.backgroundColor = "rgba(0, 0, 0, 0.8)";
             }
             else{
-                document.querySelector(".joueurBoard").style.borderColor = "green";
+                document.querySelector("#portraitMichant").style.backgroundColor = "rgba(255, 87, 51, 0.8)";
+                document.querySelector("#portraitJoueur").style.backgroundColor = "rgba(255, 255, 255, 0.8)";
             }
             
         }     
@@ -499,9 +502,6 @@ const associerAvatar = (classe) =>{
 }
 
 const afficherDeck = (key) =>{
-    console.log("lol")
-    console.log(key)
-
     if (click == false){  
         deck = document.createElement("iframe");
         deck.src = "https://magix.apps-de-cours.com/server/#/deck/" + key;
