@@ -12,6 +12,8 @@
             <div class="infoPartie">
                 <button onClick='jouerCoup("SURRENDER")'>Abandonner</button>
                 <button onClick='revenirLobby()'>lobby</button>
+                <!-- <iframe src=<?= $data["chat"] ?>></iframe> -->
+                <!-- <button onClick="afficherChat('')">chat</button> -->
                 
             </div>
         </div>
@@ -21,6 +23,7 @@
                 <div id="portraitMichant"></div>
 
                 <div class="infoJoueur">
+                    <div class="nomMichant"></div>
                     <div class="michantClassHero"></div>
                     <div class="michantHP"></div>
                     <div class="michantMP"></div>
@@ -39,7 +42,6 @@
     </div>
 
     <div class="michantBoard"></div>
-
 
     <div class="joueurBoard"></div>
 

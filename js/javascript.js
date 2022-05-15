@@ -136,10 +136,14 @@ const gameState = () =>{
                 ecrireBD(nomJoueur,nomOpposant, nomOpposant);
                 infoEntree = true;
             }
-            else if (result == "LAST_GAME_WIN" && !infoEntree){
+            else if (result == "LAST_GAME_WON" && !infoEntree){
                 document.querySelector(".texteBienvenu").innerHTML = "Victoire";
                 ecrireBD(nomJoueur,nomOpposant, nomJoueur);
                 infoEntree = true;
+            }
+
+            else if (result == "WAITING" && !infoEntree){
+                document.querySelector(".texteBienvenu").innerHTML = "En attente";
             }
         }
         else {
@@ -163,9 +167,10 @@ const gameState = () =>{
                 document.querySelector(".boiteCarteMichant").append(carte);
             }
 
-            document.querySelector(".michantHP").innerHTML = "HP du michant : " + result.opponent.hp;
-            document.querySelector(".michantMP").innerHTML = "MP du michant : " + result.opponent.mp;
-            document.querySelector(".michantLostCount").innerHTML = "Partie perdu du michant : " + result.opponent.lossCount;
+            document.querySelector(".nomMichant").innerHTML = result.opponent.username;
+            document.querySelector(".michantHP").innerHTML = result.opponent.hp;
+            document.querySelector(".michantMP").innerHTML = result.opponent.mp;
+            document.querySelector(".michantLostCount").innerHTML = "Défait : " + result.opponent.lossCount;
            
             // Ses cartes en jeu
             document.querySelector(".michantBoard").innerHTML="";
@@ -515,4 +520,19 @@ const afficherDeck = (key) =>{
         document.querySelector("#deck").remove();
         click = false;
     }
+}
+
+const afficherChat = (key) =>{
+    if (click == false){
+        chat = document.createAttribute("iframe");
+        chat.src = "https://magix.apps-de-cours.com/server/#/chat/" + key;
+        chat.id = "chat"
+        applyStyles(chat);
+        document.querySelector("body").append(chat)
+    }
+    else{
+        document.querySelector("#chat").remove();
+        click = false;
+    }
+
 }

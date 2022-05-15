@@ -265,15 +265,28 @@ a{
     margin: 1%;
 }
 
+.nomMichant{
+    margin: 2%;
+}
 .michantClassHero{
     margin: 2%;
 }
 
 .michantHP{
+    background-image: url("../img/heart.gif");
+    background-size:contain;
+    background-position:left;
+    background-repeat: no-repeat;
     margin: 2%;
+    padding-left: 8%;
 }
 .michantMP{
+    background-image: url("../img/Sous.png");
+    background-size:contain;
+    background-position:left;
+    background-repeat: no-repeat;
     margin: 2%;
+    padding-left: 8%;
 }
 .michantLostCount{
     margin: 2%;
