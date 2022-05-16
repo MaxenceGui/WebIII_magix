@@ -15,7 +15,7 @@ window.addEventListener("load",() =>{
     }
 
     if (lieu == "http://localhost/WebIII_magix/login.php"){
-        document.querySelector("#username").innerHTML = localStorage.username;
+        document.querySelector("#username").value = localStorage.username;
         document.querySelector(".button_div").onclick = () =>{
             if (document.querySelector("#username").value != null){
                 nomJoueur = document.querySelector("#username").value;
@@ -34,8 +34,8 @@ const applyStyles = iframe => {
     let styles = {
         fontColor : "white",
         backgroundColor : "rgba(6, 68, 6, 0.8)", 
-        fontGoogleName : "Sofia", 
-        fontSize : "20px", 
+        fontGoogleName : "Press Start 2P", 
+        fontSize : "10px", 
         hideIcons : true, //(or false),
         inputBackgroundColor : "rgba(240,240,240, 0.5)", 
         inputFontColor : "black", 
@@ -540,16 +540,15 @@ const afficherDeck = (key) =>{
     }
 }
 
-const afficherChat = (key) =>{
+const afficherChat = () =>{
     if (click == false){
-        chat = document.createAttribute("iframe");
-        chat.src = "https://magix.apps-de-cours.com/server/#/chat/" + key;
-        chat.id = "chat"
-        applyStyles(chat);
-        document.querySelector("body").append(chat)
+        document.querySelector(".chat").style.width = "0%";
+        document.querySelector(".contenantBoard").style.width = "100%";
+        click = true;
     }
     else{
-        document.querySelector("#chat").remove();
+        document.querySelector(".chat").style.width = "20%";
+        document.querySelector(".contenantBoard").style.width = "80%";
         click = false;
     }
 

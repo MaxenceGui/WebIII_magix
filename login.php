@@ -7,10 +7,11 @@
 ?>
 
 <div id="zoneAccueil">
-    <div class="chat"></div>
+    <div class="chaton"></div>
     <div class="character"></div>
+    <h1 class="titre"> Connexion </h1>
+    <h1 class="magix">MAGIX</h1>
     <div id="accueil">
-        <h1> Connexion </h1>
         <form class="formulaire" action="login.php" method="post">
             <div class="usager_label">
                 <label for="username">Nom d'usager</label>

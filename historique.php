@@ -8,6 +8,7 @@
 
 <div id="historique">
     <div class="presentationPartie">
+        <div class="caseVictoire"></div>
         <div class="partieResultat">
             <div class="case">Joueur</div>
             <div class="case">Opposant</div>
@@ -34,11 +35,10 @@
         <?php
             }
         ?>
-        <div class="caseVictoire"></div>
-        <div class="historiqueBouton">
+    </div>
+    <div class="historiqueBouton">
             <button onClick="supprimerBD()">supprimer historique de partie</button>
             <button onClick="revenirLobby()">Lobby</button>
-        </div>
     </div>
 </div>
 

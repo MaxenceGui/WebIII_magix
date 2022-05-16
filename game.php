@@ -12,8 +12,7 @@
             <div class="infoPartie">
                 <button onClick='jouerCoup("SURRENDER")'>Abandonner</button>
                 <button onClick='revenirLobby()'>lobby</button>
-                <!-- <iframe src=<?= $data["chat"] ?>></iframe> -->
-                <!-- <button onClick="afficherChat('')">chat</button> -->
+                <button onClick="afficherChat()">chat</button>
                 
             </div>
         </div>
@@ -41,10 +40,13 @@
         </div>
     </div>
 
-    <div class="michantBoard"></div>
-
-    <div class="joueurBoard"></div>
-
+    <div id="board">
+        <div class="contenantBoard">
+            <div class="michantBoard"></div>
+            <div class="joueurBoard"></div>
+        </div>
+        <iframe class="chat" onload="applyStyles(this)" src=<?= $data["chat"] ?>></iframe>
+    </div>
     <div id="zoneJoueur">
         <div class="joueurDiv">
             <div class="infoJoueur">

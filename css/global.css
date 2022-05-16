@@ -1,6 +1,8 @@
 * {
     margin:0;
     padding:0;
+    font-family: 'Press Start 2P', cursive;
+    /* font-size: small; */
 }
 
 :root{
@@ -11,25 +13,28 @@
     --largeurAvatar: 100%;
 }
 
+/*Scrollbar*/
+::-webkit-scrollbar {
+   width: 0px;
+  }
+
 button{
     color: rgb(255, 255, 255);
     background-color: rgb(6, 68, 6);
     border-color: white;
-    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
     width: 50%;
     height: 30%;
     margin: 1% 1%;
+    font-size: xx-small;
 }
 
 h1{
     text-align: center;
-    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
     color: rgb(6, 68, 6);
 }
 
 a{
     color: rgb(255, 255, 255);
-    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
     text-decoration: none;
 }
 
@@ -49,7 +54,7 @@ a{
     justify-content: center;
     width: 25%;
     height: 25%;
-    margin: 10% auto;
+    margin: 5% auto;
 }
 
 .arcade{
@@ -84,13 +89,23 @@ a{
     100% {left:120vw;}
 }
 
-.chat{
-    position: fixed;
+.titre{
+    margin-top: 5%;
+}
+
+.magix{
+    font-size: 5vh;
+    margin-top: 2%;
+    color:rgb(47, 92, 47)
+}
+
+.chaton{
+    position: absolute;
     background-image: url("../img/chat.gif");
     background-size: cover;
     width: 64px;
     height: 64px;
-    margin: 28vh 74vw;
+    margin: 28vh 75vw;
 }
 
 .formulaire{
@@ -101,7 +116,6 @@ a{
     width: 50%;
     margin: 0% auto;
     text-align: center;
-    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
     color: rgb(255,255,255);
 }
 
@@ -115,7 +129,6 @@ a{
     width: 50%;
     margin: 0% auto;
     text-align: center;
-    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
     color: rgb(255,255,255);;
 }
 
@@ -189,10 +202,13 @@ a{
 #historique{
     height: 100vh;
     width: 100%;
-    background-image: url("../img/background_forest.gif");
+    background-image: url("../img/histobackground.gif");
     background-attachment: fixed;
     background-size: cover;
     position: fixed;
+    display:flex;
+    flex-direction: column;
+    justify-content: center;
 }
 
 .presentationPartie{
@@ -200,24 +216,26 @@ a{
     flex-direction: column;
     height: 60%;
     width: 60%;
-    margin: 20% auto;
+    margin: auto;
+    overflow: auto;
+    border: 2px solid black;
 }
 
 .partieResultat{
-    background-color: white;
     border: 2px solid black;
     display: flex;
     flex-direction: row;
     justify-content: space-evenly;
-    width: 50%;
+    width: 90%;
     margin: 1px auto;    
 }
 
 .case{
     color: white;
-    background-color: rgb(6, 68, 6);
+    background-color: rgba(6, 68, 6, 0.8);
     width: 25%;
     text-align: center;
+    padding: 1% 0;
 }
 
 .caseVictoire{
@@ -346,10 +364,29 @@ a{
 .michantBoard{
     background-color: rgba(0, 0, 0, 0.2);
     width: 100%;
-    height: 25%;
+    height: 50%;
     display: flex;
     justify-content: center;
     margin-top: 0.5%
+}
+
+.chat{
+    width: 20%;
+    height: 100%;
+}
+
+#board{
+    width: 100%;
+    height: 50%;
+    display: flex;
+    flex-direction: row;
+}
+
+.contenantBoard{
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    width:80%;
 }
 
 /* Joueur*/
@@ -370,7 +407,7 @@ a{
 }
 .joueurClassHero{
     text-align: center;
-    font-size: xx-large;
+    font-size: large;
 }
 .joueurHP{
     height:15%;
@@ -380,6 +417,7 @@ a{
     background-position: center;
     background-repeat: no-repeat;
     text-align: end;
+    font-size: xx-small;
     color: white;
     margin: 0 auto;
 }
@@ -391,6 +429,7 @@ a{
     background-position: center;
     background-repeat: no-repeat;
     text-align: end;
+    font-size: xx-small;
     color: white;
     margin: 0 auto;
 }
@@ -404,7 +443,7 @@ a{
 }
 .joueurBoard{
     width: 100%;
-    height: 25%;
+    height: 50%;
     margin: 0.5% 0;
     background-color: rgb(0, 0, 0, 0.2);
     display : flex;
@@ -430,6 +469,11 @@ a{
     width: 150px;
     text-align: center;
     margin: 0 1%;
+}
+
+.carteFrame:hover{
+    background-color: rgba(0, 0, 0, 0.8);
+    transform: scale(1.5);
 }
 
 .carteInfo{
@@ -475,6 +519,8 @@ a{
 .carteInfoHab{
     background-color:rgba(56, 105, 196, 0.8);
     color: black;
+    font-size: x-small;
+    padding: 5%;
     height: 30%;
     border-top: 1px solid green;
 }
@@ -886,8 +932,9 @@ a{
     width: 50%;
     color: white;
     text-align:center;
-    font-size: xx-large;
+    font-size: large;
     margin: 0 auto;
+    padding: 5% 0;
 }
 .remaingTurnTime{
     color: white;
