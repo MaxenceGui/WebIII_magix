@@ -185,6 +185,50 @@ a{
     height: 30%;
 }
 
+/*Élément de la page historique*/
+#historique{
+    height: 100vh;
+    width: 100%;
+    background-image: url("../img/background_forest.gif");
+    background-attachment: fixed;
+    background-size: cover;
+    position: fixed;
+}
+
+.presentationPartie{
+    display: flex;
+    flex-direction: column;
+    height: 60%;
+    width: 60%;
+    margin: 20% auto;
+}
+
+.partieResultat{
+    background-color: white;
+    border: 2px solid black;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    width: 50%;
+    margin: 1px auto;    
+}
+
+.case{
+    color: white;
+    background-color: rgb(6, 68, 6);
+    width: 25%;
+    text-align: center;
+
+}
+
+.historiqueBouton{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    width: 100%;
+    height: 15%;
+}
+
 
 /*id de la page game.php*/
 #zoneJeu{

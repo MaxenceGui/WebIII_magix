@@ -23,6 +23,10 @@ window.addEventListener("load",() =>{
             }
         }
     }
+
+    if(lieu == "http://localhost/WebIII_magix/historique.php"){
+        pourcentageVictoire(localStorage.username);
+    }
 })
 
 const applyStyles = iframe => {
@@ -97,6 +101,20 @@ const ecrireBD = (joueur, opposant, gagnant) =>{
     .then(response => response.json())
     .then(result =>{
         alert("information partie ajouté dans la bd");
+    })
+}
+
+const pourcentageVictoire = (username) =>{
+    formData = new FormData();
+    formData.append("username", username);
+
+    fetch("ajax.php", {
+        method : "POST",
+        body : formData
+    })
+    .then(response => response.json())
+    .then(result =>{
+        console.log(result);
     })
 }
 

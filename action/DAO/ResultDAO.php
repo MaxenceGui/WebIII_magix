@@ -14,7 +14,7 @@
 
             $rows = $statement->fetchAll();
             
-             return $rows;
+            return $rows;
         }
 
         public static function addResult ($joueur, $opposant, $gagnant){
@@ -26,7 +26,7 @@
             $statement->bindParam(3,$gagnant); // se protégez des SQL injections
             $statement->execute();
             
-           return [];
+            return [];
         }
 
         public static function deleteResult (){
@@ -35,7 +35,18 @@
             $statement = $connection->prepare("TRUNCATE resultat");
             $statement->execute();
             
-           return [];
+            return [];
+        }
+
+        public static function returnVictory ($username){
+            $connection = Connection::getConnection();
+            $statement = $connection->prepare("SELECT to_char(avg((gagnant=username)::int) * 100, 'fm00D00%') FROM resultat VALUES(?)");
+            $statement->bindParam(1,$username);
+            $statement->execute();
+            
+            $response = $rows;
+
+            return $response;
         }
     }
 ?>

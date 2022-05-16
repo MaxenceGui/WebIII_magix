@@ -46,6 +46,10 @@
             if(!empty($_POST["vider"])){
                 ResultDAO::deleteResult();
             }
+            if(!empty($_POST["username"])){
+                $username = $_POST["username"];
+                ResultDAO::returnVictory($username);
+            }
             if(!empty($_POSt["deck"])){
                 $result = $data["key"];
             }

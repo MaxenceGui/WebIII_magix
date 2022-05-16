@@ -6,39 +6,36 @@
     $data = $action->execute();
 ?>
 
-<div>
-    <?php
-        foreach ($data["result"] as $row){
-            ?>
-            <div>
-                <div>
-                    <?= $row["joueur"] ?>
+<div id="historique">
+    <div class="presentationPartie">
+        <?php
+            foreach ($data["result"] as $row){
+                ?>
+                <div class="partieResultat">
+                    <div class="case">
+                        <?= $row["joueur"] ?>
+                    </div>
+                    <div class="case">
+                        <?= $row["opposant"] ?>
+                    </div>
+                    <div class="case">
+                        <?= $row["journee"] ?>
+                    </div>
+                    <div class="case">
+                        <?= $row["gagnant"] ?>
+                    </div>
                 </div>
-                <div>
-                    <?= $row["opposant"] ?>
-                </div>
-                <div>
-                    <?= $row["journee"] ?>
-                </div>
-                <div>
-                    <?= $row["gagnant"] ?>
-                </div>
-            </div>
-    <?php
-        }
-    ?>
+        <?php
+            }
+        ?>
+        <div class="historiqueBouton">
+            <button onClick="supprimerBD()">supprimer historique de partie</button>
+            <button onClick="revenirLobby()">Lobby</button>
+        </div>
+    </div>
 </div>
 
-<div class="carteFrame">
-    Donkey Kong
-    <div class="carteInfo">
-        <div class="carteInfoVie">3</div>
-        <div class="carteInfoAtk">3</div>
-        <div class="carteInfoCout">2</div>
-    </div>
-    <div class="carteImg"></div>
-    <div class="carteInfoHab">info ici!</div>
-</div>
-<button onClick="supprimerBD()">supprimer historique de partie</button>
-<button onClick="revenirLobby()">Lobby</button>
+
+
+
    
