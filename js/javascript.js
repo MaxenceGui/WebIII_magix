@@ -114,7 +114,7 @@ const pourcentageVictoire = (username) =>{
     })
     .then(response => response.json())
     .then(result =>{
-        console.log(result);
+        document.querySelector(".caseVictoire").innerHTML = "Victoire : " + result[0][0];
     })
 }
 

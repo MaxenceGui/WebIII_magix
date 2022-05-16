@@ -8,6 +8,12 @@
 
 <div id="historique">
     <div class="presentationPartie">
+        <div class="partieResultat">
+            <div class="case">Joueur</div>
+            <div class="case">Opposant</div>
+            <div class="case">Date</div>
+            <div class="case">Gagnant</div>
+        </div>
         <?php
             foreach ($data["result"] as $row){
                 ?>
@@ -28,6 +34,7 @@
         <?php
             }
         ?>
+        <div class="caseVictoire"></div>
         <div class="historiqueBouton">
             <button onClick="supprimerBD()">supprimer historique de partie</button>
             <button onClick="revenirLobby()">Lobby</button>

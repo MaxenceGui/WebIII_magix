@@ -218,7 +218,15 @@ a{
     background-color: rgb(6, 68, 6);
     width: 25%;
     text-align: center;
+}
 
+.caseVictoire{
+    color: white;
+    background-color: rgb(6, 68, 6);
+    border: 2px solid black;
+    width: 25%;
+    text-align: center;
+    align-self: center;
 }
 
 .historiqueBouton{

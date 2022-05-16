@@ -36,27 +36,28 @@
                     $result  = CommonAction::callAPI("games/auto-match", $data);
                 }
             }
-        elseif(!empty($_POST["gagnant"])){
-                $joueur = $_POST["joueur"];
-                $opposant = $_POST["opposant"];
-                $gagnant = $_POST["gagnant"];
-                ResultDAO::addResult($joueur, $opposant, $gagnant);
-        }
-        else{
-            if(!empty($_POST["vider"])){
-                ResultDAO::deleteResult();
-            }
-            if(!empty($_POST["username"])){
-                $username = $_POST["username"];
-                ResultDAO::returnVictory($username);
-            }
-            if(!empty($_POSt["deck"])){
-                $result = $data["key"];
+            elseif(!empty($_POST["gagnant"])){
+                    $joueur = $_POST["joueur"];
+                    $opposant = $_POST["opposant"];
+                    $gagnant = $_POST["gagnant"];
+                    ResultDAO::addResult($joueur, $opposant, $gagnant);
             }
             else{
-                $result = CommonAction::callAPI("games/state", $data);
+                if(!empty($_POST["vider"])){
+                    ResultDAO::deleteResult();
+                }
+                if(!empty($_POST["username"])){
+                    $username = $_POST["username"];
+                    $result = ResultDAO::returnVictory($username);
+                    return compact("result");
+                }
+                if(!empty($_POSt["deck"])){
+                    $result = $data["key"];
+                }
+                else{
+                    $result = CommonAction::callAPI("games/state", $data);
+                }
             }
-        }
 			return compact("result");
 		}
 	}
