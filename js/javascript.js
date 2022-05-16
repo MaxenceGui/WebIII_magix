@@ -166,6 +166,13 @@ const gameState = () =>{
         }
         else {
 
+            if (result.mp >= 2 && !result.heroPowerAlreadyUsed){
+                document.querySelector(".btnPower").style.borderColor ="yellow";
+            }
+            else{
+                document.querySelector(".btnPower").style.borderColor ="white";
+            }
+
             infoEntree = false;
             nomOpposant = result.opponent.username;
             document.querySelector(".texteBienvenu").innerHTML = result.welcomeText;
