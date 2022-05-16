@@ -530,6 +530,7 @@ a{
 .carteInfoHab{
     background-color:rgba(56, 105, 196, 0.8);
     color: black;
+    word-wrap: break-word;
     font-size: x-small;
     padding: 5%;
     height: 30%;

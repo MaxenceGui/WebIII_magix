@@ -321,7 +321,7 @@ const gameState = () =>{
                 carteStruct.classList.add("carteFrame");
 
                 if (result.hand[carte].cost <= result.mp){
-                    carteStruct.style.borderWidth = "2px";
+                    carteStruct.style.borderWidth = "1px";
                     carteStruct.style.borderColor = "yellow";
                     carteStruct.style.transform = "scale(1.1)";
                 }
