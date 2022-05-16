@@ -204,6 +204,12 @@ const gameState = () =>{
                 // boite contenant les infos de la carte
                 let carteStats = document.createElement("div");
                 carteStats.classList.add("carteInfo");
+                if(result.opponent.board[carte].mechanics[0] == "Taunt"){
+                    carteStats.style.backgroundColor = "grey";
+                }
+                else if (result.opponent.board[carte].mechanics[0] == "Stealth"){
+                    carteStats.style.backgroundColor = "black";
+                }
                 carteStruct.append(carteStats);
                 
                 // boite pour la vie
@@ -258,6 +264,12 @@ const gameState = () =>{
                 // boite contenant les infos de la carte
                 let carteStats = document.createElement("div");
                 carteStats.classList.add("carteInfo");
+                if(result.board[carte].mechanics[0] == "Taunt"){
+                    carteStats.style.backgroundColor = "grey";
+                }
+                else if (result.board[carte].mechanics[0] == "Stealth"){
+                    carteStats.style.backgroundColor = "black";
+                }
                 carteStruct.append(carteStats);
 
                 // boite pour la vie
@@ -301,6 +313,12 @@ const gameState = () =>{
                 let carteStruct = document.createElement("div");
                 carteStruct.classList.add("carteFrame");
 
+                if (result.hand[carte].cost <= result.mp){
+                    carteStruct.style.borderWidth = "2px";
+                    carteStruct.style.borderColor = "yellow";
+                    carteStruct.style.transform = "scale(1.1)";
+                }
+
                 carteStruct.onclick = () => {
                     carteStruct.remove();
                     jouerCoup("PLAY", result.hand[carte].uid);
@@ -309,6 +327,12 @@ const gameState = () =>{
                 // boite contenant les infos de la carte
                 let carteStats = document.createElement("div");
                 carteStats.classList.add("carteInfo");
+                if(result.hand[carte].mechanics[0] == "Taunt"){
+                    carteStats.style.backgroundColor = "grey";
+                }
+                else if (result.hand[carte].mechanics[0] == "Stealth"){
+                    carteStats.style.backgroundColor = "black";
+                }
                 carteStruct.append(carteStats);
                 
                 // boite pour la vie

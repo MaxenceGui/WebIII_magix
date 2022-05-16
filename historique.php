@@ -10,10 +10,10 @@
     <div class="presentationPartie">
         <div class="caseVictoire"></div>
         <div class="partieResultat">
-            <div class="case">Joueur</div>
-            <div class="case">Opposant</div>
-            <div class="case">Date</div>
-            <div class="case">Gagnant</div>
+            <div class="casePresentation">Joueur</div>
+            <div class="casePresentation">Opposant</div>
+            <div class="casePresentation">Date</div>
+            <div class="casePresentation">Gagnant</div>
         </div>
         <?php
             foreach ($data["result"] as $row){
