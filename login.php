@@ -11,6 +11,14 @@
     <div class="character"></div>
     <h1 class="titre"> Connexion </h1>
     <h1 class="magix">MAGIX</h1>
+    <div>
+        <?php if($data["hasConnectionError"]){
+            ?>
+            <div class="erreur">Votre mot de passe ou nom d'utilisateur est erroné</div>
+            <?php
+            }
+            ?>
+    </div>
     <div id="accueil">
         <form class="formulaire" action="login.php" method="post">
             <div class="usager_label">
