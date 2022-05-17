@@ -40,7 +40,8 @@
 
         public static function returnVictory ($username){
             $connection = Connection::getConnection();
-            $statement = $connection->prepare("SELECT to_char(avg((gagnant='$username')::int) * 100, 'fm00D00%') FROM resultat");
+            $statement = $connection->prepare("SELECT to_char(avg((gagnant=?)::int) * 100, 'fm00D00%') FROM resultat");
+            $statement->bindParam(1,$username);
             $statement->execute();
             
             $response = $statement->fetchAll();
