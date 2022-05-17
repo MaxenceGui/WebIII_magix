@@ -584,13 +584,13 @@ const afficherDeck = (key) =>{
 
 const afficherChat = () =>{
     if (click == false){
-        document.querySelector(".chat").style.width = "0%";
-        document.querySelector(".contenantBoard").style.width = "100%";
+        document.querySelector(".chat").style.width = "20%";
+        document.querySelector(".contenantBoard").style.width = "80%";
         click = true;
     }
     else{
-        document.querySelector(".chat").style.width = "20%";
-        document.querySelector(".contenantBoard").style.width = "80%";
+        document.querySelector(".chat").style.width = "0%";
+        document.querySelector(".contenantBoard").style.width = "100%";
         click = false;
     }
 
