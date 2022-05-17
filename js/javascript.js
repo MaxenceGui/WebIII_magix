@@ -9,12 +9,12 @@ let tableauClasse = ["Warrior", "Priest", "Hunter", "Warlock", "DemonHunter", "R
 window.addEventListener("load",() =>{
 
     let lieu = location.href
-    if (lieu == "http://localhost/WebIII_magix/game.php"){
+    if (lieu.includes("game.php")){
         setTimeout(gameState, 1000); // Appel initial (attendre 1 seconde)
         nomJoueur = localStorage.username;
     }
 
-    if (lieu == "http://localhost/WebIII_magix/login.php"){
+    if (lieu.includes("login.php")){
         document.querySelector("#username").value = localStorage.username;
         document.querySelector(".button_div").onclick = () =>{
             if (document.querySelector("#username").value != null){
@@ -23,11 +23,11 @@ window.addEventListener("load",() =>{
             }
         }
     }
-    if(lieu == "http://localhost/WebIII_magix/lobby.php"){
+    if(lieu.includes("lobby.php")){
         document.querySelector(".lobbyTitre").innerHTML = "Bienvenue " + localStorage.username;
     }
 
-    if(lieu == "http://localhost/WebIII_magix/historique.php"){
+    if(lieu.includes("historique.php")){
         pourcentageVictoire(localStorage.username);
     }
 })
