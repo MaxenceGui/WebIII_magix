@@ -37,9 +37,6 @@ a{
     color: rgb(255, 255, 255);
     text-decoration: none;
 }
-iframe::-webkit-scrollbar{
-    display: none;
-}
 
 /* Élément de la page de login*/
 #zoneAccueil{
@@ -393,7 +390,6 @@ iframe.chat{
     height: 100%;
     overflow-x: hidden;
 }
-
 
 #board{
     width: 100%;
