@@ -39,9 +39,12 @@ const applyStyles = iframe => {
         hideIcons : true, //(or false),
         inputBackgroundColor : "rgba(240,240,240, 0.5)", 
         inputFontColor : "black", 
-        height : "100vh", 
+        height : "100vh",
         memberListFontColor : "white", 
         memberListBackgroundColor : "green",
+        scrollbarWidth: "none",
+        overflowX : "hidden",
+        border : 0,
     }
 
     setTimeout(() => { 

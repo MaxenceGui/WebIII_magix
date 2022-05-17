@@ -45,7 +45,9 @@
             <div class="michantBoard"></div>
             <div class="joueurBoard"></div>
         </div>
-        <iframe class="chat" onload="applyStyles(this)" src=<?= $data["chat"] ?>></iframe>
+        <div class="chat">
+            <iframe class="chat" scrolling="no" onload="applyStyles(this)" src=<?= $data["chat"] ?>></iframe>
+        </div>
     </div>
     <div id="zoneJoueur">
         <div class="joueurDiv">
