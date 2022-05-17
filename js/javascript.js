@@ -106,7 +106,7 @@ const ecrireBD = (joueur, opposant, gagnant) =>{
     })
     .then(response => response.json())
     .then(result =>{
-        alert("information partie ajouté dans la bd");
+        
     })
 }
 
