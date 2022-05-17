@@ -23,6 +23,9 @@ window.addEventListener("load",() =>{
             }
         }
     }
+    if(lieu == "http://localhost/WebIII_magix/lobby.php"){
+        document.querySelector(".lobbyTitre").innerHTML = "Bienvenue " + localStorage.username;
+    }
 
     if(lieu == "http://localhost/WebIII_magix/historique.php"){
         pourcentageVictoire(localStorage.username);
@@ -117,7 +120,12 @@ const pourcentageVictoire = (username) =>{
     })
     .then(response => response.json())
     .then(result =>{
-        document.querySelector(".caseVictoire").innerHTML = "Victoire : " + result[0][0];
+        if (result[0][0] != null){
+            document.querySelector(".caseVictoire").innerHTML = "Victoire : " + result[0][0];
+        }
+        else{
+            document.querySelector(".caseVictoire").innerHTML = "Victoire : 00.00%";
+        }
     })
 }
 
@@ -131,7 +139,7 @@ const supprimerBD = () =>{
     })
     .then(response => response.json())
     .then(result =>{
-        alert("historique de partie supprimé");
+       location.reload();
     })
 }
 
